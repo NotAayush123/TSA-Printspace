@@ -1,0 +1,85 @@
+.button {
+  background-image: linear-gradient(
+    115deg,
+    #f87171,
+    #fad648,
+    #a767e5,
+    #38bdf8,
+    #f87171
+  );
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: normal;
+  border-radius: 6px;
+  overflow: hidden;
+  display: block;
+  font-weight: 500;
+}
+
+.button:hover {
+  animation: play 4s infinite;
+}
+
+.button span {
+  padding: 8px 15px;
+  font-size: 16px;
+  display: block;
+  margin: 3px;
+  background: #000;
+  border-radius: 3px;
+}
+
+.buttonTitle {
+  background-image: linear-gradient(
+    115deg,
+    #f87171,
+    #fad648,
+    #a767e5,
+    #38bdf8,
+    #f87171
+  );
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: normal;
+  border-radius: 6px;
+  overflow: hidden;
+  display: block;
+  font-weight: 500;
+  animation: play 3s infinite;
+}
+
+.buttonTitle span {
+  padding: 30px 30px;
+  display: block;
+  margin: 3px;
+  background: #000;
+  border-radius: 3px;
+
+  font-weight: 600;
+}
+@keyframes play {
+  0% {
+    background-position: 0px;
+  }
+  20% {
+    background-position: -110px;
+  }
+  35% {
+    background-position: -180px;
+  }
+  50% {
+    background-position: -210px;
+  }
+  80% {
+    background-position: -350px;
+  }
+  100% {
+    background-position: -390px;
+  }
+}

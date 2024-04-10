@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #1e293b;
+  overflow-x: hidden !important;
+}
+@layer components {
+  .link {
+    @apply block py-2 px-3 md:p-0 text-slate-400 rounded hover:text-slate-200 transition-colors duration-500;
+  }
+  .mobileLink {
+    @apply block py-2 px-3 md:p-0 text-slate-300 rounded hover:text-slate-400 transition-colors duration-500 text-center;
+  }
+  .socials {
+    @apply bg-slate-400  hover:border-slate-300 border-none transition-colors duration-300;
+  }
+}
