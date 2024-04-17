@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className="bg-transparent shadow-xl fixed w-full z-20 top-0 transition-all duration-500"
+        className="bg-transparent shadow-xl fixed w-full z-[999] top-0 transition-all duration-500"
         style={scrolled || open ? scrolledClasses : {}}
       >
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

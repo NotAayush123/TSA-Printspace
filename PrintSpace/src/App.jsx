@@ -9,8 +9,9 @@ import { ThreeDCardDemo } from "./components/ui/3dCards";
 import StyledButton from "./components/StyledButton";
 import Mission from "./components/ui/Mission";
 import { BentoGridThirdDemo } from "./components/ui/BentoGridHero";
-import { StickyScrollRevealDemo } from "./components/ui/StickyScrollHero";
 import { Footer } from "./components/ui/Footer";
+import { InfiniteMovingCardsDemo } from "./components/ui/Testimonials";
+import { LayoutGridDemo } from "./components/ui/FeaturedProjects";
 export default function App() {
   return (
     <MantineProvider>
@@ -25,8 +26,11 @@ export default function App() {
         <StyledButton text="Why Printspace?" title />
 
         <BentoGridThirdDemo />
-        <StyledButton text="Featured Projects" title />
       </div>
+      <StyledButton text="Featured Projects" title className="mt-5" />
+      <LayoutGridDemo />
+      <StyledButton text="Reviews" title />
+      <InfiniteMovingCardsDemo />
       <Footer />
     </MantineProvider>
   );

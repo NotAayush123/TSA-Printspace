@@ -24,6 +24,8 @@ module.exports = {
         shimmer: "shimmer 2s linear infinite",
         shimmerHover: "shimmer .5s linear infinite",
         border: "border 1s linear infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       keyframes: {
         spotlight: {
@@ -42,6 +44,11 @@ module.exports = {
           },
           to: {
             backgroundPosition: "-200% 0",
+          },
+        },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
           },
         },
         border: {
