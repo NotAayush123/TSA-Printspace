@@ -1,0 +1,8 @@
+.item {
+  border-radius: var(--mantine-radius-md);
+  margin-bottom: var(--mantine-spacing-lg);
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: white !important;
+  font-weight: 500;
+  border: none !important;
+}

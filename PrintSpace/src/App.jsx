@@ -12,6 +12,8 @@ import { BentoGridThirdDemo } from "./components/ui/BentoGridHero";
 import { Footer } from "./components/ui/Footer";
 import { InfiniteMovingCardsDemo } from "./components/ui/Testimonials";
 import { LayoutGridDemo } from "./components/ui/FeaturedProjects";
+import FAQ from "./components/ui/FAQ";
+import { VortexDemo } from "./components/ui/CallToAction";
 export default function App() {
   return (
     <MantineProvider>
@@ -29,8 +31,11 @@ export default function App() {
       </div>
       <StyledButton text="Featured Projects" title className="mt-5" />
       <LayoutGridDemo />
+      <StyledButton text="FAQ" title />
+      <FAQ />
       <StyledButton text="Reviews" title />
       <InfiniteMovingCardsDemo />
+      <VortexDemo />
       <Footer />
     </MantineProvider>
   );

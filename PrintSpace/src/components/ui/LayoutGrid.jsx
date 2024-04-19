@@ -1,5 +1,4 @@
-"use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../../utils/cn";
 
@@ -27,7 +26,7 @@ export const LayoutGrid = ({ cards }) => {
               card.className,
               "relative overflow-hidden",
               selected?.id === card.id
-                ? "rounded-xl cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
+                ? "rounded-xl cursor-pointer absolute inset-0 h-3/4 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
                 ? "z-20 bg-white rounded-xl h-full w-full"
                 : "bg-white rounded-xl h-full w-full"
