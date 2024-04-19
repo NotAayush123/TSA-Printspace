@@ -4,7 +4,7 @@ import {
   IconBrandInstagram,
   IconBrandX,
 } from "@tabler/icons-react";
-import logo from "../../assets/PrintSpace.png";
+import logo from "../assets/PrintSpace.png";
 import classes from "./Footer.module.css";
 
 const links = [

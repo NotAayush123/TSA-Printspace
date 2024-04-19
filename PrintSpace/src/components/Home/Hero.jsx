@@ -1,11 +1,11 @@
 import React from "react";
-import { Spotlight } from "./Spotlight";
+import { Spotlight } from "../ui/Spotlight";
 import { SimpleGrid, Text, useMantineTheme } from "@mantine/core";
 import { motion } from "framer-motion";
 
 import Model from "../../assets/browser3DModel.png";
 import { useMediaQuery } from "@mantine/hooks";
-export function SpotlightPreview() {
+export function Hero() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   return (

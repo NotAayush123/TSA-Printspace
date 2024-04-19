@@ -1,6 +1,6 @@
 import { SimpleGrid } from "@mantine/core";
 import { cn } from "../../../utils/cn";
-import { BentoGrid, BentoGridItem } from "./BentoGrid";
+import { BentoGrid, BentoGridItem } from "../ui/BentoGrid";
 import {
   IconBrandSpeedtest,
   IconFreeRights,
@@ -10,7 +10,7 @@ import {
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
-export function BentoGridThirdDemo() {
+export function BentoGridFeatures() {
   return (
     <BentoGrid className=" mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
@@ -30,7 +30,8 @@ export function BentoGridThirdDemo() {
 const SkeletonOne = () => {
   const variants = {
     initial: {
-      y: 0, // Initial position (no animation)
+      y: -30,
+      // Initial position (no animation)
     },
     hover: {
       y: 10, // Animation when hovering
@@ -40,9 +41,14 @@ const SkeletonOne = () => {
     <motion.div
       initial="initial"
       whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-white/[0.23] flex-col space-y-2 items-center justify-center"
-      animate="initial" // Animation only occurs when initially rendered
+      className="flex flex-1 w-full h-full min-h-[6rem] flex-col space-y-2 items-center justify-center"
+      animate="initial"
       variants={variants}
+      whileInView={{ opacity: 1, y: 10 }}
+      transition={{
+        duration: 1.3,
+        type: "spring",
+      }}
     >
       <div className="shadow-xl flex items-center justify-center">
         <IconLock size={150} color="white" className="z-10" />
@@ -126,7 +132,14 @@ const SkeletonTwo = () => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-white/[0.23]  flex-col space-y-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] flex-col space-y-2"
+      whileInView={{
+        width: ["0%", "100%"],
+        transition: {
+          duration: 0.5,
+        },
+      }}
+      viewport={{ once: true }}
     >
       {arr.map((_, i) => (
         <motion.div
@@ -197,7 +210,7 @@ const SkeletonFour = () => {
       initial="initial"
       animate="animate"
       whileHover="hover"
-      className="flex flex-1  w-full h-full min-h-[6rem] bg-dot-white/[0.23] flex-row space-x-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] flex-row space-x-2"
     >
       <SimpleGrid cols={3}>
         <motion.div
@@ -235,9 +248,14 @@ const SkeletonFive = () => {
     <motion.div
       initial="initial"
       whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-white/[0.23] flex-col space-y-2 items-center justify-center"
+      className="flex flex-1 w-full h-full min-h-[6rem] flex-col space-y-2 items-center justify-center"
       animate="initial" // Animation only occurs when initially rendered
       variants={variants}
+      whileInView={{ opacity: 1, y: 10 }}
+      transition={{
+        duration: 1.3,
+        type: "spring",
+      }}
     >
       <div className="shadow-xl flex items-center justify-center">
         <IconFreeRights size={150} color="white" className="z-10" />
@@ -270,7 +288,7 @@ const SkeletonFive = () => {
               filterUnits="userSpaceOnUse"
               colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"

@@ -1,8 +1,15 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 const Mission = () => {
   return (
-    <div className="text-center flex items-center justify-center">
+    <motion.div
+      className="text-center flex items-center justify-center"
+      initial={{ opacity: 0, y: -50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1, type: "spring" }}
+      whileHover={{ scale: 1.02 }}
+    >
       <div className="bg-gradient-to-r from-red-300 to-blue-500 w-11/12 flex items-center justify-center flex-col rounded-xl p-6 ">
         <div translateZ="50" className="text-xl font-bold text-white">
           Our Mission
@@ -15,7 +22,7 @@ const Mission = () => {
         </div>
         <div translateZ="100" className="w-full mt-4"></div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

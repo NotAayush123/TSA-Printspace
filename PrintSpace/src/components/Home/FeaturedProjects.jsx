@@ -1,8 +1,8 @@
 "use client";
 
-import { LayoutGrid } from "./LayoutGrid";
+import { LayoutGrid } from "../ui/LayoutGrid";
 
-export function LayoutGridDemo() {
+export function FeaturedProjects() {
   return (
     <div className="h-screen py-20 w-full">
       <LayoutGrid cards={cards} />

@@ -1,6 +1,6 @@
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "./3dCard";
-
+import { CardBody, CardContainer, CardItem } from "../ui/3dCard";
+import { motion } from "framer-motion";
 export function ThreeDCardDemo() {
   let data = [
     {
@@ -30,32 +30,43 @@ export function ThreeDCardDemo() {
       <div className="flex 2xl:flex-row flex-col 2xl:justify-around mx-3 ">
         {data.map((item, index) => (
           <CardContainer className="inter-var">
-            <CardBody
-              key={index}
-              className="bg-black relative group/card hover:shadow-2xl hover:shadow-emerald-500/[0.1] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border"
+            <motion.div
+              className="text-center flex items-center justify-center"
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1.3,
+                type: "spring",
+              }}
             >
-              <CardItem
-                translateZ="50"
-                className="text-xl font-bold text-white"
+              <CardBody
+                key={index}
+                className="bg-black relative group/card hover:shadow-2xl hover:shadow-emerald-500/[0.1] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border"
               >
-                {item.title}
-              </CardItem>
-              <CardItem
-                translateZ="60"
-                className="text-gray-300 text-sm max-w-sm mt-2"
-              >
-                {item.description}
-              </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4">
-                <img
-                  src={item.image}
-                  height="1000"
-                  width="1000"
-                  className="h-60 w-full object-cover rounded-xl group-hover:shadow-xl"
-                  alt="thumbnail"
-                />
-              </CardItem>
-            </CardBody>
+                <CardItem
+                  translateZ="50"
+                  className="text-xl font-bold text-white"
+                >
+                  {item.title}
+                </CardItem>
+                <CardItem
+                  translateZ="60"
+                  className="text-gray-300 text-sm max-w-sm mt-2"
+                >
+                  {item.description}
+                </CardItem>
+                <CardItem translateZ="100" className="w-full mt-4">
+                  <img
+                    src={item.image}
+                    height="1000"
+                    width="1000"
+                    className="h-60 w-full object-cover rounded-xl group-hover:shadow-xl"
+                    alt="thumbnail"
+                  />
+                </CardItem>
+              </CardBody>
+            </motion.div>
           </CardContainer>
         ))}
       </div>

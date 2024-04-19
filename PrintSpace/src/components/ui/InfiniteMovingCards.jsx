@@ -1,7 +1,6 @@
-"use client";
 import { cn } from "../../../utils/cn";
 import React, { useEffect, useState } from "react";
-
+import { Rating } from "@mantine/core";
 export const InfiniteMovingCards = ({
   items,
   direction,
@@ -91,13 +90,11 @@ export const InfiniteMovingCards = ({
               <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
                 {item.quote}
               </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
+              <div className="relative z-20 mt-6 flex flex-row items-center justify-end">
                 <span className="flex flex-col gap-1">
+                  <Rating value={item.stars} size="xl" />
                   <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
                     {item.name}
-                  </span>
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-                    {item.title}
                   </span>
                 </span>
               </div>

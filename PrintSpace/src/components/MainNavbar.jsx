@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/PrintSpace.png";
-import StyledButton from "../StyledButton";
+import logo from "../assets/PrintSpace.png";
+import StyledButton from "../components/ui/StyledButton";
 import { Burger, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
-const Header = () => {
+import { Outlet } from "react-router";
+const MainNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const theme = useMantineTheme();
@@ -123,8 +124,9 @@ const Header = () => {
           </motion.div>
         </div>
       </nav>
+      <Outlet />
     </>
   );
 };
 
-export default Header;
+export default MainNavbar;

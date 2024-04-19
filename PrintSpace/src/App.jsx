@@ -1,42 +1,70 @@
-// Import styles of packages that you've installed.
-// All packages except `@mantine/hooks` require styles imports
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import MainNavbar from "./components/MainNavbar";
+import Home from "./pages/Home";
+import ErrorPage from "./pages/ErrorPage";
+import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "./index.css";
-import { MantineProvider } from "@mantine/core";
-import { SpotlightPreview } from "./components/ui/SpotlightHero";
-import Header from "./components/ui/Header";
-import { ThreeDCardDemo } from "./components/ui/3dCards";
-import StyledButton from "./components/StyledButton";
-import Mission from "./components/ui/Mission";
-import { BentoGridThirdDemo } from "./components/ui/BentoGridHero";
-import { Footer } from "./components/ui/Footer";
-import { InfiniteMovingCardsDemo } from "./components/ui/Testimonials";
-import { LayoutGridDemo } from "./components/ui/FeaturedProjects";
-import FAQ from "./components/ui/FAQ";
-import { VortexDemo } from "./components/ui/CallToAction";
-export default function App() {
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainNavbar />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      // {
+      //   path: "/about",
+      //   element: <About />,
+      // },
+      // {
+      //   path: "/otherInfo",
+      //   element: <OtherInfo />,
+      // },
+      // {
+      //   path: "/privacy",
+      //   element: <PrivacyPolicy />,
+      // },
+    ],
+    // },
+    // {
+    //   path: "/signup",
+    //   element: <Signup />,
+    // },
+    // {
+    //   path: "/login",
+    //   element: <Login />,
+    // },
+    // {
+    //   path: "/dashboard",
+    //   element: <DashboardNavbar />,
+    //   children: [
+    //     { index: true, element: <Dashboard /> },
+    //     { path: "account", element: <Account /> },
+    //     { path: "settings", element: <Settings /> },
+    //     {
+    //       path: "events",
+    //       element: <Events />,
+    //     },
+    //     {
+    //       path: "detail",
+    //       element: <EventDetail />,
+    //     },
+    //   ],
+  },
+]);
+function App() {
   return (
-    <MantineProvider>
-      <Header />
-      <SpotlightPreview />
-      <div className="bg-black bg-dot-white/[0.3]">
-        <StyledButton text="Our Mission and Values" title />
-        <Mission />
-
-        <ThreeDCardDemo />
-
-        <StyledButton text="Why Printspace?" title />
-
-        <BentoGridThirdDemo />
-      </div>
-      <StyledButton text="Featured Projects" title className="mt-5" />
-      <LayoutGridDemo />
-      <StyledButton text="FAQ" title />
-      <FAQ />
-      <StyledButton text="Reviews" title />
-      <InfiniteMovingCardsDemo />
-      <VortexDemo />
-      <Footer />
-    </MantineProvider>
+    <>
+      <MantineProvider>
+        {" "}
+        <RouterProvider router={router} />
+      </MantineProvider>
+    </>
   );
 }
+
+export default App;

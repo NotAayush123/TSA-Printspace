@@ -32,6 +32,7 @@ export const LayoutGrid = ({ cards }) => {
                 : "bg-white rounded-xl h-full w-full"
             )}
             layout
+            whileInView={{ opacity: 1, y: 10 }}
           >
             {selected?.id === card.id && <SelectedCard selected={selected} />}
             <BlurImage card={card} />

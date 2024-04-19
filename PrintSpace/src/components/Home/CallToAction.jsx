@@ -1,8 +1,8 @@
 import React from "react";
-import { Vortex } from "./Vortex";
-import StyledButton from "../StyledButton";
+import { Vortex } from "../ui/Vortex";
+import StyledButton from "../ui/StyledButton";
 
-export function VortexDemo() {
+export function CallToAction() {
   return (
     <div className="w-full  rounded-md  h-[30rem] overflow-hidden">
       <Vortex
