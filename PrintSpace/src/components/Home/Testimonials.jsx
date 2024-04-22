@@ -3,7 +3,10 @@ import { InfiniteMovingCards } from "../ui/InfiniteMovingCards";
 
 export function Testimonials() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-slate-950 dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div
+      className="h-[40rem] rounded-md flex flex-col antialiased bg-slate-950 dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
+      id="reviews"
+    >
       <InfiniteMovingCards
         items={testimonials}
         direction="right"

@@ -4,7 +4,7 @@ import { LayoutGrid } from "../ui/LayoutGrid";
 
 export function FeaturedProjects() {
   return (
-    <div className="h-screen py-20 w-full">
+    <div className="h-screen py-20 w-full" id="featured">
       <LayoutGrid cards={cards} />
     </div>
   );

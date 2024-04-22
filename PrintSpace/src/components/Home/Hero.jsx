@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 
 import Model from "../../assets/browser3DModel.png";
 import { useMediaQuery } from "@mantine/hooks";
+import { useNavigate } from "react-router";
 export function Hero() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const navigate = useNavigate();
   return (
     <SimpleGrid
       cols={mobile ? 1 : 2}
@@ -47,6 +49,9 @@ export function Hero() {
             </motion.p>
             <button
               style={{ transition: "all .5s" }}
+              onClick={() => {
+                navigate("/signup");
+              }}
               className="inline-flex h-12 animate-shimmer text-white duration-500 items-center hover:shadow-lg  hover:shadow-slate-50 hover:-translate-y-1 justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium transition-colors"
             >
               Get started!

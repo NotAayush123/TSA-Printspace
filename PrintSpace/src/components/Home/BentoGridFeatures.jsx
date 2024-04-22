@@ -222,7 +222,7 @@ const SkeletonFour = () => {
           <div className="w-10  h-full bg-blue-300 rounded-xl max-sm:hidden"></div>
         </motion.div>
         <div className="items-center justify-center flex">
-          <h1 className="text-white text-center font-bold text-3xl">===</h1>
+          <h1 className="whiteCentered font-bold text-3xl">===</h1>
         </div>
         <motion.div
           variants={second}

@@ -16,4 +16,61 @@ body {
   .socials {
     @apply bg-slate-400  hover:border-slate-300 border-none transition-colors duration-300;
   }
+  .whiteCentered {
+    @apply text-white text-center;
+  }
+  .privacyHeader {
+    @apply text-3xl font-bold my-5 text-slate-300;
+  }
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #9ca3af;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ddd6fe;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #c4b5fd;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.m-ccf8da4c .m-f2d85dd2 {
+  font-family: "Poppins" !important;
+}
+
+.passwordError .m-f2d85dd2 {
+  border: solid 5px #dc3545 !important;
+}
+
+#mantine-ybw9qwbi3 {
+  border-bottom: none !important;
+  border: var(--bs-border-width) solid var(--bs-border-color) !important;
+  border-radius: var(--bs-border-radius) !important;
+}
+#mantine-ybw9qwb13 {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.m-8fb7ebe7 {
+  font-family: "Poppins" !important;
+}
+
+@media (max-width: 450px) {
+  .DashboardNavbar_navbar__fdiss {
+    z-index: 999999999 !important;
+  }
+}
+
+.m-26062bec {
+  order: 0;
 }

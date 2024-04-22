@@ -6,22 +6,20 @@ import {
 } from "@tabler/icons-react";
 import logo from "../assets/PrintSpace.png";
 import classes from "./Footer.module.css";
-
+import { useNavigate } from "react-router-dom";
 const links = [
-  { link: "#", label: "Contact" },
-  { link: "#", label: "Privacy" },
-  { link: "#", label: "Blog" },
-  { link: "#", label: "Store" },
-  { link: "#", label: "Careers" },
+  { link: "/about", label: "About" },
+  { link: "/privacy", label: "Privacy" },
+  { link: "/otherInfo", label: "Other Information" },
 ];
 
 export function Footer() {
+  const navigate = useNavigate();
   const items = links.map((link) => (
     <a
-      className="link text-1xl font-semibold"
+      className="link text-1xl font-semibold mx-1"
       key={link.label}
       href={link.link}
-      onClick={(event) => event.preventDefault()}
     >
       {link.label}
     </a>

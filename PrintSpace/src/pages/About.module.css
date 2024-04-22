@@ -1,0 +1,77 @@
+.aboutContainer {
+  background-image: url("https://img.freepik.com/free-vector/wave-background-abstract-gradient-design_483537-3688.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 5em;
+  text-align: center;
+}
+
+.textContainer {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  text-align: center;
+  height: 100vh;
+}
+.info {
+  text-align: center;
+  font-size: 4em;
+  background-image: linear-gradient(to right, #fff, #afabab);
+  font-weight: 600;
+  background-color: rgba(#fff, #fff, #fff, 0.6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.scrollButton {
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: #a78bfa;
+  transition: all 1s;
+}
+.scrollButton:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  background-color: #60a5fa;
+}
+.aboutInfo {
+  height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://img.freepik.com/free-vector/wave-background-abstract-gradient-design_483537-3688.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .aboutInfo {
+    height: 200vh;
+  }
+  .info {
+    margin-top: 150px !important;
+    font-size: 3em !important ;
+  }
+}
+@media (max-width: 375px) {
+  .aboutInfo {
+    height: 250vh;
+  }
+}
+.newContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

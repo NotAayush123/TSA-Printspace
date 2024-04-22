@@ -4,19 +4,18 @@ import StyledButton from "../components/ui/StyledButton";
 import { Burger, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
-import { Outlet } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+
 const MainNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.xs})`);
+  const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -25,10 +24,12 @@ const MainNavbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const scrolledClasses = {
     background: "rgba(255, 255, 255, 0.2)",
     backdropFilter: "blur(10px)",
   };
+
   return (
     <>
       <nav
@@ -40,14 +41,18 @@ const MainNavbar = () => {
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src={logo} className="h-8 rounded-xl" alt="Flowbite Logo" />
+            <img
+              src={logo}
+              className="h-9 rounded-full"
+              alt="Printspace logo"
+            />
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Printspace
             </span>
           </a>
 
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {!mobile && (
+            {!mobile && location.pathname === "/" && (
               <>
                 <button
                   style={
@@ -55,11 +60,12 @@ const MainNavbar = () => {
                       ? { transition: "all .5s", border: "solid 1px white" }
                       : {}
                   }
+                  onClick={() => navigate("/signup")}
                   className="animate-shimmer hover:animate-shimmerHover mx-4 text-white duration-500 items-centerhover:-translate-y-1 justify-center rounded-md border  border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium"
                 >
                   Sign Up
                 </button>
-                <StyledButton text={"Login"} />
+                <StyledButton text={"Login"} href="/login" />
               </>
             )}
             <Burger
@@ -77,7 +83,6 @@ const MainNavbar = () => {
             className={`items-center justify-between ${
               !open && "hidden"
             } w-full md:flex md:w-auto md:order-1 `}
-            // initial={!open && { opacity: 0 }}
             animate={open && { opacity: 1 }}
           >
             <ul
@@ -85,28 +90,36 @@ const MainNavbar = () => {
                 mobile && "bg-gray-600 mb-3"
               }`}
             >
-              <li>
-                <a href="#" className={`${open ? "mobileLink" : "link"}`}>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#" className={`${open ? "mobileLink" : "link"}`}>
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className={`${open ? "mobileLink" : "link"}`}>
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#" className={`${open ? "mobileLink" : "link"}`}>
-                  Contact
-                </a>
-              </li>
+              {location.pathname === "/" && (
+                <>
+                  <li>
+                    <a
+                      href="#mission"
+                      className={`${open ? "mobileLink" : "link"}`}
+                    >
+                      Our Mission and Values
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#featured"
+                      className={`${open ? "mobileLink" : "link"}`}
+                    >
+                      Featured Projects
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#reviews"
+                      className={`${open ? "mobileLink" : "link"}`}
+                    >
+                      Reviews
+                    </a>
+                  </li>
+                </>
+              )}
             </ul>
-            {mobile && (
+            {mobile && location.pathname === "/" && (
               <>
                 <button
                   style={
@@ -114,11 +127,12 @@ const MainNavbar = () => {
                       ? { transition: "all .5s", border: "solid 1px white" }
                       : {}
                   }
+                  onClick={() => navigate("/signup")}
                   className="animate-shimmer hover:animate-shimmerHover h-12 w-full mb-3 text-white duration-500 items-centerhover:-translate-y-1 justify-center rounded-md border  border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium"
                 >
                   Sign Up
                 </button>
-                <StyledButton text={"Login"} />
+                <StyledButton text={"Login"} href="/login" />
               </>
             )}
           </motion.div>
