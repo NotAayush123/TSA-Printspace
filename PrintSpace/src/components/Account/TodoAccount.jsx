@@ -22,7 +22,7 @@ const TodoAccount = () => {
   return (
     <div>
       {data && data.length !== 0 && (
-        <h2 className="mb-3" style={{ color: "white" }}>
+        <h2 className="mb-5  text-2xl text-neutral-200  font-semibold">
           Finish Setting Up Your Account
         </h2>
       )}
@@ -54,8 +54,13 @@ const TodoItem = ({ task, removeItem }) => {
         display ? classes.remove : ""
       } ${done ? classes.done : ""}`}
     >
-      <p style={{ display: "inline", margin: "0" }}>{task}</p>
-      <Checkbox style={{ marginLeft: "auto" }} color="green" onClick={check} />
+      <p
+        style={{ display: "inline", margin: "0" }}
+        className="text-white font-semibold my-3"
+      >
+        {task}
+      </p>
+      <Checkbox style={{ marginLeft: "auto" }} color="cyan" onClick={check} />
     </div>
   );
 };

@@ -1,33 +1,31 @@
 import { Button, Divider } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
 import { VolunteeringCard } from "../components/Account/VolunteeringCard";
 import TodoAccount from "../components/Account/TodoAccount";
+import { IconSettings } from "@tabler/icons-react";
+
 const Account = () => {
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const name = user.name;
   const navigate = useNavigate();
+
   return (
-    <Container>
-      <div style={{ width: "100wh", marginTop: "15px" }}>
-        <h1 style={{ color: "white" }}>{name}'s Account</h1>
+    <div className="container">
+      <div className="w-full mt-15">
+        <h1 className="text-white my-5 text-5xl font-bold">{name}'s Account</h1>
       </div>
       <Divider size={4} />
       <div className="infoGroup mt-5">
         <TodoAccount />
-        <Row>
-          <Col sm={6}>
-            <VolunteeringCard />
-          </Col>
-          <Col sm={6}>
-            <VolunteeringCard last={true} />
-          </Col>
-        </Row>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <VolunteeringCard />
+          <VolunteeringCard last={true} />
+        </div>
         <Button
           fullWidth
           className="mt-5"
           color="gray"
-          leftSection={<i class="fa-solid fa-gear"></i>}
+          leftSection={<IconSettings />}
           onClick={() => {
             navigate("/dashboard/settings");
           }}
@@ -35,7 +33,7 @@ const Account = () => {
           Configure your account
         </Button>
       </div>
-    </Container>
+    </div>
   );
 };
 

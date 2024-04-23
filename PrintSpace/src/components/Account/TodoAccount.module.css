@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  border: 1px solid #dee2e6;
+
   padding: var(--mantine-spacing-sm) var(--mantine-spacing-xl);
-  background-color: white;
+  background-color: black;
   margin-bottom: 10px;
 }
 .strike p {

@@ -123,8 +123,8 @@ export default function LoginForm() {
       ) : (
         " "
       )}
-      <Container className="flex itens-center justify-center">
-        <div className="mx-auto rounded-2xl p-8 shadow-input bg-black ">
+      <Container className="flex itens-center justify-center ">
+        <div className="mx-auto rounded-2xl p-8 shadow-input bg-black ring-4 ring-slate-800">
           <h2 className="font-bold text-3xl text-neutral-200 mb-5">
             Welcome to{" "}
             <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
@@ -190,7 +190,7 @@ export default function LoginForm() {
                 size="sm"
                 component="button"
                 href="/signup"
-                className="text-slate-300 hover:text-slate-200 transition-colors"
+                className="text-slate-50 hover:text-slate-300 transition-colors"
               >
                 Create account
               </a>{" "}
@@ -199,7 +199,7 @@ export default function LoginForm() {
                 size="sm"
                 component="button"
                 href="/"
-                className="text-slate-300 hover:text-slate-200 transition-colors"
+                className="text-slate-50 hover:text-slate-300 transition-colors"
               >
                 Go home
               </a>

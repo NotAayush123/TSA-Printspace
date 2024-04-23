@@ -16,7 +16,7 @@ import {
 import classes from "./DashboardNavbar.module.css";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
-import { Button } from "react-bootstrap";
+
 function NavbarLink({
   icon: Icon,
   label,
@@ -129,12 +129,12 @@ export default function DashboardNavbar() {
               showSidebar ? classes.active : ""
             }`}
           >
-            <Button
+            <button
               className={`btn-light ${classes["orange-button"]}`}
               onClick={toggleSidebar}
             >
               <i className="fa-solid fa-bars" style={{ color: "#ffa238" }}></i>
-            </Button>
+            </button>
             {showSidebar && (
               <div style={{ zIndex: "999999 !important" }}>
                 <div className={classes.content}>

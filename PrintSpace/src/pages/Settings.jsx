@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+
 import InputInfoGroup from "../components/InputInfoGroup";
 import { DropzoneButton } from "../components/Account/Dropzone";
 import { ProfileDesc } from "../components/Account/ProfileDesc";
@@ -10,7 +10,7 @@ const Settings = () => {
   const description = user.description;
 
   return (
-    <Container className="mb-5">
+    <div className="mb-5 mx-auto">
       <h1 className="mb-5" style={{ color: "white" }}>
         Account Settings
       </h1>
@@ -55,7 +55,7 @@ const Settings = () => {
           </Button>
         )}
       </div>
-    </Container>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { EventsList } from "./Events/EventsList";
-import Search from "./Events/Search";
+import { EventsList } from "../components/Events/EventsList";
+import Search from "../components/Events/Search";
 
 const Events = () => {
   const [value, setValue] = useState();
