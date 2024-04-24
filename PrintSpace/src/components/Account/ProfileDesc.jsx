@@ -17,7 +17,7 @@ export function ProfileDesc({ onSave, onCancel, read, value }) {
   }
   return (
     <>
-      <RichTextEditor editor={editor} style={{ backgroundColor: "white" }}>
+      <RichTextEditor editor={editor}>
         {!read && (
           <RichTextEditor.Toolbar sticky stickyOffset={60}>
             <RichTextEditor.ControlsGroup>

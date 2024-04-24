@@ -5,14 +5,19 @@ import { Burger, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { IconArrowRight, IconHome2, IconLogout } from "@tabler/icons-react";
 
 const MainNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [rotate, setRotate] = useState(false);
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.xs})`);
   const location = useLocation();
+  const signedIn = localStorage.getItem("signedIn");
+  const [name, setName] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
@@ -25,9 +30,33 @@ const MainNavbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const user = localStorage.getItem("currentUser");
+    if (user) {
+      const localname = JSON.parse(user).name;
+      setName(localname);
+    }
+  }, []);
+
+  const handleHover = () => {
+    setOpen(true);
+    setRotate(true);
+  };
+
+  const handleLeave = () => {
+    setOpen(false);
+    setRotate(false);
+  };
+
   const scrolledClasses = {
     background: "rgba(255, 255, 255, 0.2)",
     backdropFilter: "blur(10px)",
+  };
+
+  const logout = () => {
+    localStorage.removeItem("signedIn");
+    localStorage.removeItem("currentUser");
+    window.location.reload();
   };
 
   return (
@@ -52,7 +81,7 @@ const MainNavbar = () => {
           </a>
 
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {!mobile && location.pathname === "/" && (
+            {!mobile && location.pathname === "/" && !signedIn && !name && (
               <>
                 <button
                   style={
@@ -67,6 +96,57 @@ const MainNavbar = () => {
                 </button>
                 <StyledButton text={"Login"} href="/login" />
               </>
+            )}
+            {signedIn && name && (
+              <div
+                onMouseEnter={handleHover}
+                onMouseLeave={handleLeave}
+                className="relative"
+              >
+                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white focus:ring-4 focus:outline-none  focus:ring-blue-800">
+                  <span className="relative px-5 py-2.5 transition-all ease-in duration-75 text-white bg-gray-900 rounded-md group-hover:bg-opacity-0 flex justify-center items-center">
+                    <span>{name}</span>
+                    {/* Arrow */}
+                    <motion.span
+                      className="h-5 w-5 ml-1 mb-1 transition-transform duration-300"
+                      initial={{ rotate: 0 }}
+                      animate={
+                        rotate
+                          ? {
+                              rotate: 90,
+                            }
+                          : {}
+                      }
+                    >
+                      <IconArrowRight />
+                    </motion.span>
+                  </span>
+                </button>
+                {open && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 bg-white shadow-md py-2 px-4 rounded-md flex flex-col"
+                  >
+                    <button
+                      onClick={() => {
+                        navigate("/dashboard");
+                      }}
+                      className="text-white flex flex-col items-center bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                    >
+                      <IconHome2 size={20} /> Dashboard
+                    </button>
+                    <button
+                      className="text-white flex flex-col items-center  bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                      onClick={logout}
+                    >
+                      <IconLogout size={20} />{" "}
+                      <span className="ml-2">Logout</span>
+                    </button>
+                  </motion.div>
+                )}
+              </div>
             )}
             <Burger
               opened={open}

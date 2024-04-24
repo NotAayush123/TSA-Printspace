@@ -74,3 +74,15 @@ html {
 .m-26062bec {
   order: 0;
 }
+.m_8fb7ebe7 {
+  font-family: "poppins", sans-serif;
+  background-color: #27272a;
+  border: solid 2px #71717a;
+  color: white;
+}
+._sign_14diz_21:disabled {
+  background-color: black;
+  color: white;
+  opacity: 0.9;
+  height: 100px;
+}

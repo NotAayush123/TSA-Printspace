@@ -39,7 +39,8 @@ const Search = ({ onEnter, onFilter }) => {
         leftSection={
           <IconSearch
             style={{ width: rem(16), height: rem(16) }}
-            stroke={1.5}
+            stroke={4}
+            color="white"
           />
         }
         data={eventNames}
@@ -48,14 +49,20 @@ const Search = ({ onEnter, onFilter }) => {
           onEnter(value);
         }}
       />
-      <Popover width={400} position="bottom" withArrow shadow="md">
+      <Popover
+        width={400}
+        position="bottom"
+        withArrow
+        shadow="md"
+        className="bg-slate-500"
+      >
         <Popover.Target>
-          <Button className={classes.filter} size="sm">
+          <Button className={`${classes.filter} bg-slate-500`} size="sm">
             <IconFilter />
           </Button>
         </Popover.Target>
-        <Popover.Dropdown>
-          <Text size="lg" className="mb-2">
+        <Popover.Dropdown className="bg-slate-800 border-slate-700 border-2 rounded-xl ">
+          <Text size="lg" className="text-white font-semibold mb-4">
             Filter Days
           </Text>
           <Checkbox
@@ -63,36 +70,38 @@ const Search = ({ onEnter, onFilter }) => {
             label="Friday"
             icon={CheckIcon}
             style={{ marginBottom: "5px" }}
-            color="cyan"
+            color="#a78bfa"
             value={friday}
             onClick={() => {
               setFriday((prev) => !prev);
             }}
+            className="text-white font-semibold"
           />
           <Checkbox
             checked={saturday}
             label="Saturday"
             icon={CheckIcon}
             style={{ marginBottom: "5px" }}
-            color="cyan"
+            color="#a78bfa"
             value={saturday}
             onClick={() => {
               setSaturday((prev) => !prev);
             }}
+            className="text-white font-semibold my-2"
           />
           <Checkbox
             checked={sunday}
             label="Sunday"
             icon={CheckIcon}
             style={{ marginBottom: "5px" }}
-            color="cyan"
+            color="#a78bfa"
             value={sunday}
             onClick={() => {
               setSunday((prev) => !prev);
             }}
-            className="mb-3"
+            className="text-white font-semibold mb-3"
           />
-          <Button
+          <button
             fullWidth
             onClick={() => {
               const days = {
@@ -103,10 +112,10 @@ const Search = ({ onEnter, onFilter }) => {
 
               onFilter(days);
             }}
-            color="pink"
+            className="mt-5 animate-shimmer hover:animate-shimmerHover h-10 w-full mb-3 text-white duration-500 items-centerhover:-translate-y-1 justify-center rounded-md border  border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium"
           >
             Save
-          </Button>
+          </button>
         </Popover.Dropdown>
       </Popover>
     </div>

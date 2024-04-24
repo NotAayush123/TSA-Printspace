@@ -1,5 +1,4 @@
 .card {
-  background-color: var(--mantine-color-body);
   width: 600px;
 }
 
@@ -7,7 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: solid 1px var(--mantine-color-gray-3);
 }
 
 .section {

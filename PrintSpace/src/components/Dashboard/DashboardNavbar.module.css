@@ -4,13 +4,12 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #c7b4ff;
-  background-color: #a78bfa;
+  border-right: 1px solid #0f172a;
+
   position: fixed;
   top: 0px;
   left: 0px;
-
-  /* z-index: 9999; */
+  z-index: 9999 !important;
 }
 
 .navbarMain {
@@ -26,16 +25,15 @@
   align-items: center;
   justify-content: center;
   color: white;
-
   &:hover {
-    background-color: #c7b4ff;
+    background-color: #334155;
   }
 
   &[data-active] {
     &,
     &:hover {
-      background-color: rgba(253, 186, 116, 0.1);
-      color: #c7b4ff;
+      background-color: rgba(147, 197, 253, 0.1);
+      color: rgb(147, 197, 253);
     }
   }
 }
@@ -46,10 +44,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #fda4af;
 
   &:hover {
-    background-color: rgb(220, 53, 69, 0.3);
+    background-color: rgba(250, 82, 82, 0.12);
   }
 }
 .content {
@@ -63,7 +61,7 @@
   margin-left: 30px;
 }
 .menuButton {
-  position: fixed;
+  position: relative;
   top: 10px;
   left: 10px;
   background-color: rgba(#fff, #fff, #fff, 0.3);

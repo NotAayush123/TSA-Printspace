@@ -11,14 +11,14 @@ const Settings = () => {
 
   return (
     <div className="mb-5 mx-auto">
-      <h1 className="mb-5" style={{ color: "white" }}>
+      <h1 className="mb-5 text-white font-bold text-5xl mt-5">
         Account Settings
       </h1>
       <div>
         <InputInfoGroup label="Name" />
         <InputInfoGroup label="Email" />
         <DropzoneButton />
-        <h3 className="mt-3" style={{ color: "white" }}>
+        <h3 className="mb-5 text-slate-300 font-semibold text-3xl mt-5">
           {description ? "Your Description" : "Create a description"}
         </h3>
         {description && !profile ? (

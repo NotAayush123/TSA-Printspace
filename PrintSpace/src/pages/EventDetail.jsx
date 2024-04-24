@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import classes from "./EventDetail.module.css";
 import {
@@ -9,23 +9,6 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
-import {
-  IconDatabase,
-  IconPrinter,
-  IconCircuitBattery,
-  IconHammer,
-  IconAccessPoint,
-  IconNews,
-  IconDeviceGamepad2,
-  IconDesk,
-  IconRobot,
-  IconWindmill,
-  IconRocket,
-  IconMicroscope,
-  Icon360,
-  IconLock,
-  IconSquareRoot,
-} from "@tabler/icons-react";
 const EventDetail = () => {
   // Get the current location
   const location = useLocation();
@@ -36,7 +19,6 @@ const EventDetail = () => {
 
   // Access individual query parameters
   const eventName = queryParams.get("name");
-  const category = queryParams.get("category");
   const image = queryParams.get("image");
   const maxSpots = queryParams.get("maxSpots");
   const address = queryParams.get("address");
@@ -66,7 +48,6 @@ const EventDetail = () => {
   }
   const event = {
     eventName,
-    category,
     image,
     maxSpots,
     address,
@@ -77,48 +58,6 @@ const EventDetail = () => {
     contactEmail,
     volunteers,
   };
-  const mockdata = [
-    { title: "3D Printing", icon: IconPrinter, color: "violet" },
-    { title: "Electrical Circuits", icon: IconCircuitBattery, color: "indigo" },
-    { title: "Engineering", icon: IconHammer, color: "blue" },
-    { title: "AI Networks", icon: IconAccessPoint, color: "green" },
-    { title: "Website Development", icon: IconNews, color: "teal" },
-    { title: "Game Development", icon: IconDeviceGamepad2, color: "cyan" },
-    { title: "Tool Workshop", icon: IconDesk, color: "pink" },
-    { title: "Robotics", icon: IconRobot, color: "red" },
-    { title: "Renewable Energy", icon: IconWindmill, color: "orange" },
-    { title: "Aerospace", icon: IconRocket, color: "gray" },
-    { title: "Data Science", icon: IconDatabase, color: "lime" },
-    { title: "Environmental Science", icon: IconMicroscope, color: "red" },
-    {
-      title: "Virtual Reality (VR) and Augmented Reality (AR)",
-      icon: Icon360,
-      color: "orange",
-    },
-    {
-      title: "Cybersecurity",
-      icon: IconLock,
-      color: "gray",
-    },
-    {
-      title: "Math",
-      icon: IconSquareRoot,
-      color: "teal",
-    },
-  ];
-
-  const iconWithTitle = mockdata.find((item) => item.title === category);
-
-  // Assuming `category` is the category you want to search for
-
-  let iconComponent = null;
-
-  if (iconWithTitle) {
-    const { icon: IconComponent, color } = iconWithTitle;
-    // Assuming `IconComponent` is the React component for the icon
-
-    iconComponent = <IconComponent style={{ color }} />;
-  }
 
   const avatars = volunteers.map((volunteer) => {
     return (
@@ -129,15 +68,20 @@ const EventDetail = () => {
       </>
     );
   });
+  const [isSignedUp, setIsSignedUp] = useState(false);
+  useEffect(() => {
+    const isAlreadySignedUp = events.some(
+      (event) => event.eventName === eventName
+    );
+    setIsSignedUp(isAlreadySignedUp);
+  }, [location.search]);
   return (
     <div>
       <div className={classes.imgContainer}>
         <img className={classes.image} src={image} alt="Volunteering" />
       </div>
-      <h1 className="mt-5" style={{ color: "white" }}>
-        {eventName}
-      </h1>
-      <h3 style={{ color: "white" }}>{address}</h3>
+      <h1 className="text-white text-3xl font-semibold my-4">{eventName}</h1>
+      <h3 className="text-slate-300 text-3xl font-semibold mb-4">{address}</h3>
       <AvatarGroup className="mb-3">
         {avatars}
         {"   "}
@@ -152,37 +96,56 @@ const EventDetail = () => {
         shadow="xl"
         withBorder
         p="xs"
-        style={{ display: "flex", alignItems: "center" }}
+        className="mt-3 bg-slate-900 border-4 border-slate-600"
       >
-        <p
-          style={{ marginLeft: "10px", marginTop: "10px", fontSize: "1.2rem" }}
-        >
-          {iconComponent}
-          {"  "} {category}
+        <h3 className="text-slate-300 text-3xl font-semibold mb-4">Details</h3>
+        <p className="text-white  text-xl my-3 ">
+          <span className="font-semibold">Address</span>: {address}
+        </p>
+        <p className="text-white  text-xl my-3 ">
+          {" "}
+          <span className="font-semibold">Time</span>: {time}
+        </p>
+        <p className="text-white  text-xl my-3 ">
+          {" "}
+          <span className="font-semibold">Hosted on</span>: {day}
+        </p>
+        <p className="text-white  text-xl my-3 ">{usersTask}</p>
+      </Paper>
+      <Paper
+        shadow="xl"
+        withBorder
+        p="xs"
+        className="mt-3 bg-slate-900 border-4 border-slate-600 mb-5"
+      >
+        <h3 className="text-slate-300 text-3xl font-semibold mb-4">Contact</h3>
+        <p className="text-white  text-xl my-3 ">
+          <span className="font-semibold">Contact Phone</span>: {contactPhone}
+        </p>
+        <p className="text-white  text-xl my-3 ">
+          <span className="font-semibold">Contact Email</span>: {contactEmail}
         </p>
       </Paper>
-      <Paper shadow="xl" withBorder p="xs" className="mt-3">
-        <h3>Details</h3>
-        <p>Address: {address}</p>
-        <p>Time: {time}</p>
-        <p>Hosted on: {day}</p>
-        <p>{usersTask}</p>
-      </Paper>
-      <Paper shadow="xl" withBorder p="xs" className="mt-3 mb-5">
-        <h3>Contact</h3>
-        <p>Contact Phone: {contactPhone}</p>
-        <p>Contact Email: {contactEmail}</p>
-      </Paper>
       {!past && (
-        <Paper className={classes.overlay} shadow="xl" withBorder p="lg">
-          {signed ? (
-            <Button className={classes.sign} fullWidth color="gray" disabled>
+        <Paper
+          className={`${classes.overlay} bg-slate-900 border-none`}
+          shadow="xl"
+          withBorder
+          p="lg"
+        >
+          {signed || isSignedUp ? (
+            <Button
+              className={classes.sign}
+              fullWidth
+              color="rgba(31, 31, 31, 1)"
+              disabled
+            >
               You're already signed up!
             </Button>
           ) : (
             <Button
               className={classes.sign}
-              color="#60a5fa"
+              color="rgba(31, 31, 31, 1)"
               radius="lg"
               fullWidth
               onClick={() => {

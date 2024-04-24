@@ -14,7 +14,7 @@ import {
   IconLogout,
 } from "@tabler/icons-react";
 import classes from "./DashboardNavbar.module.css";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
 
 function NavbarLink({
@@ -33,7 +33,9 @@ function NavbarLink({
     <Tooltip
       label={label}
       position="right"
-      transitionProps={{ duration: 0 }}
+      transitionProps={{ duration: 300 }}
+      className="mx-3"
+      withArrow
       style={{ zIndex: "999999" }}
     >
       <UnstyledButton
@@ -48,7 +50,7 @@ function NavbarLink({
             window.location.reload();
           }
         }}
-        className={logout ? classes.logout : classes.link}
+        className={logout ? classes.logout : `${classes.link} my-1`}
         data-active={active || undefined}
       >
         {profile ? (
@@ -70,6 +72,19 @@ const mockdata = [
 
 export default function DashboardNavbar() {
   const [active, setActive] = useState(1);
+
+  useEffect(() => {
+    const setActivePage = () => {
+      const currentPage = window.location.pathname;
+      const activeIndex = mockdata.findIndex(
+        (item) => item.src === currentPage
+      );
+      setActive(activeIndex !== -1 ? activeIndex : 0);
+    };
+
+    setActivePage();
+  }, []);
+  const location = useLocation();
 
   const links = mockdata.map((link, index) => (
     <NavbarLink
@@ -107,7 +122,7 @@ export default function DashboardNavbar() {
         {!mobile ? (
           <div className={classes.content}>
             <div className={classes.navbarContainer}>
-              <nav className={classes.navbar}>
+              <nav className={`${classes.navbar} bg-slate-950`}>
                 <div className={classes.navbarMain}>
                   <Stack justify="center" gap={0}>
                     {links}
@@ -119,7 +134,14 @@ export default function DashboardNavbar() {
                 </Stack>
               </nav>
             </div>
-            <div className={classes.outletcontent}>
+            <div
+              className={`${
+                location.pathname === "/dashboard/account" ||
+                location.pathname === "/dashboard/detail"
+                  ? "flex w-full justify-center"
+                  : classes.outletcontent
+              }`}
+            >
               <Outlet />
             </div>
           </div>

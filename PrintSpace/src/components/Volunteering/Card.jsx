@@ -27,19 +27,24 @@ export function VolunteeringCard(item) {
   const navigate = useNavigate();
 
   return (
-    <Card withBorder radius="md" className={classes.card}>
+    <Card
+      radius="md"
+      className={`${classes.card} bg-slate-900 border-4 border-slate-700`}
+    >
       <Card.Section className={classes.imageSection}>
         <Image
           src={item.image}
-          alt="Tesla Model S"
+          alt="Event Image"
           style={{ width: "100%", height: "250px" }}
         />
       </Card.Section>
 
       <Group justify="space-between" mt="md">
         <div>
-          <Text fw={500}>{item.name || item.eventName}</Text>
-          <Text fz="xs" c="dimmed">
+          <Text fw={700} c="white" fz="md">
+            {item.name || item.eventName}
+          </Text>
+          <Text fz="sm" className="text-slate-200 ">
             {item.day} - {item.time}
           </Text>
         </div>
@@ -50,7 +55,12 @@ export function VolunteeringCard(item) {
       <Card.Section className={classes.section}>
         <Group gap={30}>
           <div>
-            <Text fz="xl" fw={700} style={{ lineHeight: 1 }}>
+            <Text
+              fz="xl"
+              fw={700}
+              style={{ lineHeight: 1 }}
+              className="text-slate-100"
+            >
               {item.volunteers.length}/{item.maxSpots} people
             </Text>
           </div>
@@ -58,7 +68,8 @@ export function VolunteeringCard(item) {
           <Button
             radius="xl"
             style={{ flex: 1 }}
-            color="#60a5fa"
+            variant="gradient"
+            gradient={{ from: "grape", to: "indigo", deg: 90 }}
             onClick={() => {
               let queryParams = `name=${encodeURIComponent(
                 item.name || item.eventName

@@ -72,7 +72,7 @@ export default function InputInfoGroup({ label }) {
           }}
         />
       )}
-      <h3 className="mt-1" style={{ color: "white" }}>
+      <h3 className="mb-5 text-slate-300 font-semibold text-3xl mt-5">
         {label ? `Your ${label}` : "Field"}
       </h3>
       <Input
@@ -92,6 +92,7 @@ export default function InputInfoGroup({ label }) {
               style={{
                 marginRight: "10px",
               }}
+              color="rgba(31, 31, 31, 1)"
             >
               <IconEdit />
             </Button>

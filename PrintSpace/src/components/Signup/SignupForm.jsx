@@ -9,6 +9,7 @@ import { Label } from "./Label";
 import { Input } from "./Input";
 import { cn } from "../../../utils/cn";
 import City from "../../assets/CyberpunkCity.jpg";
+import { Button } from "@mantine/core";
 const SignupForm = () => {
   const [passwordIsValid, setPasswordIsValid] = useState(false);
   const [passwordValue, setPasswordValue] = useState("");
@@ -273,17 +274,15 @@ const SignupForm = () => {
                 Go home
               </a>
             </div>
-            <button
+            <Button
               type="submit"
               disabled={!formIsValid}
-              className={`bg-blue-500 text-white font-semibold py-2 px-4 rounded-md ${
-                formIsValid
-                  ? "hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  : "cursor-not-allowed opacity-50"
-              }`}
+              variant="filled"
+              color="rgba(31, 31, 31, 1)"
+              className="mt-2 disabled:bg-slate-700"
             >
               Submit
-            </button>
+            </Button>
           </div>
         </form>
         <div className="hidden md:block ml-auto max-xl:w-2/3 max-lg:w-6/12">
