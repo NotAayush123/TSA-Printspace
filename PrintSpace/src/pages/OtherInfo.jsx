@@ -16,6 +16,18 @@ const OtherInfo = () => {
       variants={variants}
       transition={{ duration: 0.5 }}
     >
+      <h1 className="mt-5 text-4xl font-bold text-center">Key Information</h1>
+      <h3 className="text-slate-200 font-semibold text-center text-2xl mt-10 ">
+        This is some key information you'll probably need!
+      </h3>
+      <p className="mt-5 text-center">
+        After you sign up as a user, and then sign up for an event, space and
+        equipment will automatically be reserved for you. One 3D printer and one
+        computer is allocated to each person who signs up for a makerspace,
+        automatically! You can just go to the location, and 3D print there! If
+        you miss more than 3 events, you will be blacklisted from events, and
+        banned from this platform.
+      </p>
       <h1 className="mt-5 text-4xl font-bold text-center">
         Copyright Checklist
       </h1>

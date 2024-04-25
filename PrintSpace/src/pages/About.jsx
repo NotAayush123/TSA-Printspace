@@ -26,6 +26,73 @@ const About = () => {
         "https://res.cloudinary.com/zenbusiness/q_auto/v1/shared-assets/icon/product/money-bag-256.svg",
     },
   ];
+  const frameworksUsed = [
+    {
+      name: "Mantine",
+      purpose: "Styling Purposes",
+      link: "https://mantine.dev/",
+    },
+    {
+      name: "Tailwind CSS",
+      purpose: "Styling Purposes",
+      link: "http://tailwindcss.com/",
+    },
+    {
+      name: "BcryptJS",
+      purpose: "Security Purposes",
+      link: "https://www.npmjs.com/package/bcryptjs",
+    },
+    {
+      name: "Tabler Icons for React",
+      purpose: "Icons",
+      link: "https://tabler.io/docs/icons/react",
+    },
+    {
+      name: "Tiptap",
+      purpose: "Text Editor",
+      link: "https://tiptap.dev/",
+    },
+    {
+      name: "clsx",
+      purpose: "Styling Purposes",
+      link: "https://www.npmjs.com/package/clsx",
+    },
+    {
+      name: "Framer Motion",
+      purpose: "Animations",
+      link: "https://www.framer.com/",
+    },
+    {
+      name: "Mini-svg-data-uri",
+      purpose: "Convert SVGs",
+      link: "https://www.npmjs.com/package/mini-svg-data-uri",
+    },
+    {
+      name: "React",
+      purpose: "Web Development Technology",
+      link: "https://react.dev/",
+    },
+    {
+      name: "React-router-dom",
+      purpose: "Web Router",
+      link: "https://reactrouter.com/en/main",
+    },
+    {
+      name: "Simplex-noise",
+      purpose: "Sound Pattern Creator",
+      link: "https://www.npmjs.com/package/simplex-noise",
+    },
+    {
+      name: "Tailwind-merge",
+      purpose: "Merge Tailwind Classes",
+      link: "https://www.npmjs.com/package/tailwind-merge",
+    },
+    {
+      name: "Vite",
+      purpose: "Creates Development Environment",
+      link: "https://vitejs.dev/",
+    },
+  ];
   return (
     <div className={styles.aboutContainer}>
       <div className="container mx-auto">
@@ -38,7 +105,7 @@ const About = () => {
           <h3 className="text-slate-300 text-4xl my-5 ">So how do we do it?</h3>
           <a href="#aboutUs">
             <button className={styles.scrollButton}>
-              <IconArrowDown className="text-white" size="sm" />
+              <IconArrowDown className="text-white" size={50} />
             </button>
           </a>
         </div>
@@ -48,7 +115,7 @@ const About = () => {
           <h1 className="whiteCentered text-4xl">Our Benefits</h1>
           <div className="flex 2xl:flex-row flex-col 2xl:justify-around mx-3 ">
             {data.map((item, index) => (
-              <CardContainer className="inter-var">
+              <CardContainer>
                 <motion.div
                   className="text-center flex items-center justify-center ring-2 rounded-xl ring-white"
                   initial={{ opacity: 0, y: -50 }}
@@ -90,6 +157,26 @@ const About = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div>
+        <h1 className="text-4xl text-white text-center font-bold  mb-8">
+          Frameworks Used
+        </h1>
+        {frameworksUsed.map((framework, index) => (
+          <div key={index} className="mx-3 flex">
+            <h3 className="text-slate-300 text-3xl font-semibold">
+              {framework.name} - {framework.purpose}
+            </h3>
+            <button
+              className="shimmerButton ml-5"
+              onClick={() => {
+                window.location.href = framework.link;
+              }}
+            >
+              View
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

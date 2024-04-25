@@ -10,6 +10,7 @@ import { IconArrowRight, IconHome2, IconLogout } from "@tabler/icons-react";
 const MainNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
   const [rotate, setRotate] = useState(false);
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.xs})`);
@@ -39,12 +40,12 @@ const MainNavbar = () => {
   }, []);
 
   const handleHover = () => {
-    setOpen(true);
+    setPopoverOpen(true);
     setRotate(true);
   };
 
   const handleLeave = () => {
-    setOpen(false);
+    setPopoverOpen(false);
     setRotate(false);
   };
 
@@ -103,12 +104,12 @@ const MainNavbar = () => {
                 onMouseLeave={handleLeave}
                 className="relative"
               >
-                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white focus:ring-4 focus:outline-none  focus:ring-blue-800">
+                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white focus:ring-4 focus:outline-none  focus:ring-blue-800  max-[800px]:mt-2 ml-2 max-[770px]:m-0">
                   <span className="relative px-5 py-2.5 transition-all ease-in duration-75 text-white bg-gray-900 rounded-md group-hover:bg-opacity-0 flex justify-center items-center">
                     <span>{name}</span>
                     {/* Arrow */}
                     <motion.span
-                      className="h-5 w-5 ml-1 mb-1 transition-transform duration-300"
+                      className="h-5 w-5 ml-1 mb-1 transition-transform duration-100"
                       initial={{ rotate: 0 }}
                       animate={
                         rotate
@@ -117,12 +118,13 @@ const MainNavbar = () => {
                             }
                           : {}
                       }
+                      transition={{ duration: 0.1 }} // Decreased duration to 0.5 seconds
                     >
                       <IconArrowRight />
                     </motion.span>
                   </span>
                 </button>
-                {open && (
+                {popoverOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -151,7 +153,7 @@ const MainNavbar = () => {
             <Burger
               opened={open}
               type="button"
-              className="inline-flex hover:bg-gray-900 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden"
+              className={`inline-flex hover:bg-gray-900 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden`}
               onClick={() => {
                 setOpen((prev) => !prev);
               }}
@@ -162,13 +164,13 @@ const MainNavbar = () => {
           <motion.div
             className={`items-center justify-between ${
               !open && "hidden"
-            } w-full md:flex md:w-auto md:order-1 `}
+            } w-full md:flex md:w-auto md:order-1  `}
             animate={open && { opacity: 1 }}
           >
             <ul
               className={`flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ${
                 mobile && "bg-gray-600 mb-3"
-              }`}
+              } ${location.pathname !== "/" && "hidden"}`}
             >
               {location.pathname === "/" && (
                 <>
@@ -199,7 +201,7 @@ const MainNavbar = () => {
                 </>
               )}
             </ul>
-            {mobile && location.pathname === "/" && (
+            {mobile && !signedIn && !name && (
               <>
                 <button
                   style={

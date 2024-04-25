@@ -17,6 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 50vh;
 }
 
 .description {
@@ -40,13 +41,16 @@
   height: 70px;
   background-color: #a78bfa;
   transition: all 1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .scrollButton:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   background-color: #60a5fa;
 }
 .aboutInfo {
-  height: 150vh;
+  /* height: 150vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,7 +59,7 @@
   background-attachment: fixed;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .aboutInfo {
     height: 200vh;
   }
@@ -68,7 +72,8 @@
   .aboutInfo {
     height: 250vh;
   }
-}
+} */
+
 .newContainer {
   height: 100vh;
   display: flex;

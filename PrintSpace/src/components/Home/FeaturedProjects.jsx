@@ -22,7 +22,7 @@ const SkeletonOne = () => {
         3D printed trees.
       </p>
       <button
-        className="animate-shimmer hover:animate-shimmerHover h-12 mb-3 text-white duration-500 items-centerhover:-translate-y-1 justify-center rounded-md border  border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium"
+        className="shimmerButton"
         onClick={() => {
           window.location.href =
             "https://i.materialise.com/blog/en/amazing-3d-prints/";
@@ -46,7 +46,7 @@ const SkeletonTwo = () => {
         in SketchUp.
       </p>
       <button
-        className="animate-shimmer hover:animate-shimmerHover h-12 mb-3 text-white duration-500 items-centerhover:-translate-y-1 justify-center rounded-md border  border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium"
+        className="shimmerButton"
         onClick={() => {
           window.location.href =
             "https://i.materialise.com/blog/en/amazing-3d-prints/";
@@ -70,7 +70,7 @@ const SkeletonThree = () => {
         create an innovative range of electronic longboards.
       </p>
       <button
-        className="animate-shimmer hover:animate-shimmerHover h-12 mb-3 text-white duration-500 items-centerhover:-translate-y-1 justify-center rounded-md border  border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium"
+        className="shimmerButton"
         onClick={() => {
           window.location.href =
             "https://i.materialise.com/blog/en/amazing-3d-prints/";
@@ -91,7 +91,7 @@ const SkeletonFour = () => {
         Instagram.
       </p>
       <button
-        className="animate-shimmer hover:animate-shimmerHover h-12 mb-3 text-white duration-500 items-centerhover:-translate-y-1 justify-center rounded-md border  border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium"
+        className="shimmerButton"
         onClick={() => {
           window.location.href =
             "https://www.demilked.com/cool-things-people-3d-printed/";

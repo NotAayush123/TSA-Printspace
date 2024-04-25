@@ -5,7 +5,7 @@ import {
   IconInfoCircle,
 } from "@tabler/icons-react";
 import classes from "./VolunteeringCard.module.css";
-import { Meteors } from "../ui/Meteors";
+
 export function VolunteeringCard({ last }) {
   return (
     <>
