@@ -24,9 +24,9 @@ const OtherInfo = () => {
         After you sign up as a user, and then sign up for an event, space and
         equipment will automatically be reserved for you. One 3D printer and one
         computer is allocated to each person who signs up for a makerspace,
-        automatically! You can just go to the location, and 3D print there! If
-        you miss more than 3 events, you will be blacklisted from events, and
-        banned from this platform.
+        automatically! You can just go to the location, and 3D print there!
+        Also, all the information will be on the event reserved, including the
+        hours!
       </p>
       <h1 className="mt-5 text-4xl font-bold text-center">
         Copyright Checklist
