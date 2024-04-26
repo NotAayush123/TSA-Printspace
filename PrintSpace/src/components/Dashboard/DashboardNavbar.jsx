@@ -12,6 +12,8 @@ import {
   IconCalendarStats,
   IconSettings,
   IconLogout,
+  IconMenu2,
+  IconX,
 } from "@tabler/icons-react";
 import classes from "./DashboardNavbar.module.css";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
@@ -137,8 +139,8 @@ export default function DashboardNavbar() {
             <div
               className={`${
                 location.pathname === "/dashboard/account" ||
-                location.pathname === "/dashboard/detail"
-                  ? "flex w-full justify-center"
+                location.pathname === "/dashboard/detail" 
+                  ? "flex w-full justify-center mx-20 "
                   : classes.outletcontent
               }`}
             >
@@ -152,19 +154,19 @@ export default function DashboardNavbar() {
             }`}
           >
             <button
-              className={`btn-light ${classes["orange-button"]}`}
+              className={`bg-slate-950 rounded-xl p-3 relative ${classes["orange-button"]}`}
               onClick={toggleSidebar}
             >
-              <i className="fa-solid fa-bars" style={{ color: "#ffa238" }}></i>
+              <IconMenu2 color="white"/>
             </button>
             {showSidebar && (
               <div style={{ zIndex: "999999 !important" }}>
                 <div className={classes.content}>
                   <div className={classes.navbarContainer}>
-                    <nav className={classes.navbar}>
+                    <nav className={`${classes.navbar} bg-slate-950`}>
                       <div className={classes.navbarMain}>
                         <span className={classes.close} onClick={closeSidebar}>
-                          &times;
+                          <IconX color="white"/>
                         </span>
                         <Stack justify="center" gap={0}>
                           {links}
