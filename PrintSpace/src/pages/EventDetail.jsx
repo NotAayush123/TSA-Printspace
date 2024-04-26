@@ -9,6 +9,7 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
+import ItemProvided from "../components/Volunteering/ItemProvided";
 const EventDetail = () => {
   // Get the current location
   const location = useLocation();
@@ -126,6 +127,16 @@ const EventDetail = () => {
           <span className="font-semibold">Contact Email</span>: {contactEmail}
         </p>
       </Paper>
+      <Paper
+        shadow="xl"
+        withBorder
+        p="xs"
+        className="mt-3 bg-slate-900 border-4 border-slate-600  mb-16"
+      >
+    <h3 className="text-slate-300 text-3xl font-semibold mb-4">Supplies Provided</h3>
+      <ItemProvided title="3D Printer" />
+      <ItemProvided title="Computer" />
+        </Paper>
       {!past && (
         <Paper
           className={`${classes.overlay} bg-slate-900 border-none`}
@@ -145,8 +156,9 @@ const EventDetail = () => {
           ) : (
             <Button
               className={classes.sign}
-              color="rgba(31, 31, 31, 1)"
-              radius="lg"
+              variant="gradient"
+              gradient={{ from: "grape", to: "indigo", deg: 90 }}
+                       radius="lg"
               fullWidth
               onClick={() => {
                 events.push(event);

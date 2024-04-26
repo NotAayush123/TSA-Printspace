@@ -7,11 +7,12 @@ import {
   AvatarGroup,
   Avatar,
   Tooltip,
+  useMantineTheme,
 } from "@mantine/core";
 
 import classes from "./Card.module.css";
 import { useNavigate } from "react-router-dom";
-
+import { useMediaQuery } from "@mantine/hooks";
 export function VolunteeringCard(item) {
   console.log(item.past);
   let avatars = item.volunteers.map((volunteer) => {
@@ -25,7 +26,8 @@ export function VolunteeringCard(item) {
   });
 
   const navigate = useNavigate();
-
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   return (
     <Card
       radius="md"
@@ -39,9 +41,9 @@ export function VolunteeringCard(item) {
         />
       </Card.Section>
 
-      <Group justify="space-between" mt="md">
+      <Group justify={`${mobile ? "" : "space-between"}`} mt="md">
         <div>
-          <Text fw={700} c="white" fz="md">
+          <Text fw={700} c="white" fz="md"  style={{ width: `${mobile ? "300px" : ""}` }}>
             {item.name || item.eventName}
           </Text>
           <Text fz="sm" className="text-slate-200 ">
@@ -53,7 +55,7 @@ export function VolunteeringCard(item) {
       </Group>
 
       <Card.Section className={classes.section}>
-        <Group gap={30}>
+      <Group gap={mobile ? 60 : 30}>
           <div>
             <Text
               fz="xl"
@@ -67,7 +69,7 @@ export function VolunteeringCard(item) {
 
           <Button
             radius="xl"
-            style={{ flex: 1 }}
+            style={{ flex: `${mobile ? 0.5 : 1}` }}
             variant="gradient"
             gradient={{ from: "grape", to: "indigo", deg: 90 }}
             onClick={() => {

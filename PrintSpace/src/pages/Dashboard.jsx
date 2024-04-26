@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import { CardsCarousel } from "../components/Volunteering/Carousel";
 import { PastCarousel } from "../components/Volunteering/PastCarousel";
+import { useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 const Dashboard = () => {
   const navigate = useNavigate();
   const signedIn = localStorage.getItem("signedIn");
@@ -31,11 +33,17 @@ const Dashboard = () => {
     item.past = true;
     return { ...item };
   });
-
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const empty = pastEvents.length === 0;
   if (signedIn) {
+    let style = { marginLeft: "2rem" };
+    if (mobile) {
+      style = { marginLeft: "0px" };
+    }
     return (
-      <div style={{ marginLeft: "2rem" }}>
+      
+      <div style={style}>
         <h1 className="my-3 text-5xl font-semibold" style={{ color: "white" }}>
           Welcome back, {user.name}
         </h1>
