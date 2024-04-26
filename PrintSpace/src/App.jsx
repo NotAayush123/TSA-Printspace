@@ -16,6 +16,8 @@ import Account from "./pages/Account";
 import Settings from "./pages/Settings";
 import EventDetail from "./pages/EventDetail";
 import Events from "./pages/Events";
+import { useEffect } from "react";
+import alanBtn from "@alan-ai/alan-sdk-web";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,6 +69,35 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    if (
+      currentPath === "/" ||
+      currentPath === "/privacy" ||
+      currentPath === "/about" ||
+      currentPath === "/otherInfo"
+    ) {
+      alanBtn({
+        key: import.meta.env.VITE_ALAN_KEY,
+        onCommand: (commandData) => {
+          if (commandData.command === "signup") {
+            window.location.href = "/signup";
+          } else if (commandData.command === "login") {
+            window.location.href = "/login";
+          }
+          if (commandData.command === "about") {
+            window.location.href = "/about";
+          }
+          if (commandData.command === "privacy") {
+            window.location.href = "/privacy";
+          }
+          if (commandData.command === "otherinfo") {
+            window.location.href = "/otherinfo";
+          }
+        },
+      });
+    }
+  }, []);
   return (
     <>
       <MantineProvider>
