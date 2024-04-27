@@ -4,7 +4,13 @@ import { useMantineTheme, rem } from "@mantine/core";
 import { VolunteeringCard } from "./Card";
 import "@mantine/carousel/styles.css";
 
-export function CardsCarousel({ date, pastEvents, username, profile }) {
+export function CardsCarousel({
+  date,
+  pastEvents,
+  username,
+  profile,
+  selectedDate,
+}) {
   const initialDate = new Date(date);
   function getNextDayFormatted(initialDate, dayOfWeek) {
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -30,8 +36,37 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
 
   let data = [
     {
+      name: "3D Print at Appoquinimink Library",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9NM3MgFgf1-lBfvfMe6FbPENez9Bu_Uf8AQ&usqp=CAU",
+      maxSpots: 6,
+      address: "204 E Main St, Middletown, DE 19709",
+      day: nextFridayFormatted,
+      time: "10:00 a.m - 4:00 p.m",
+      usersTask:
+        "Come 3D print at Appoquinimink Library! Space and equipment will be reserved for anyone who signs up.",
+      contactPhone: "(302) 257-3030  ",
+      contactEmail: "tommtrobot@gmail.com",
+      volunteers: [
+        {
+          name: " Manu Dell",
+          profilePicture: "https://randomuser.me/api/portraits/men/2.jpg",
+        },
+        {
+          name: "Mike Mir",
+
+          profilePicture: "https://randomuser.me/api/portraits/men/72.jpg",
+        },
+        {
+          name: " Mike Bell",
+
+          profilePicture: "https://randomuser.me/api/portraits/men/73.jpg",
+        },
+      ],
+    },
+
+    {
       name: "3D Printing at the Library",
-      category: "3D Printing",
       image:
         "https://img.freepik.com/free-photo/technology-equipment-blue-laboratory-generated-by-ai_188544-19546.jpg",
       maxSpots: 5,
@@ -39,7 +74,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
       time: "3:00 p.m - 5:00 p.m",
       day: nextFridayFormatted,
       usersTask:
-        "Come 3D print with others, share techniques, and have fun! Make sure you have a ride back, and you can bring a snack if you want!",
+        "Come 3D print with others, share techniques, and have fun! Make sure you have a ride back, and you can bring a snack if you want! Space and equipment is reserved for anyone who signs up.",
       contactPhone: "302 378-5588",
       contactEmail: "bob.john@gmail.com",
       volunteers: [
@@ -56,48 +91,50 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
       ],
     },
     {
-      name: "Intro to Data Science UD",
-      category: "Data Science",
+      name: "3D Printing Space",
       image:
-        "https://cdn.sanity.io/images/tlr8oxjg/production/319736499c3451e5bf944e8ea5843714df354e6a-1456x816.png?w=3840&q=80&fit=clip&auto=format",
-      maxSpots: 12,
+        "https://www.businessworldit.com/wp-content/uploads/2019/01/5-Cool-Do-It-Yourself-3D-Printing-Techniques.jpg",
+      maxSpots: 7,
       address: "590 Avenue 1743, Newark, DE 19713",
-      time: "1:00 PM - 5:00 PM",
       day: nextFridayFormatted,
+      time: "1:00 PM - 5:00 PM",
       usersTask:
-        "We will learn the basics of data analytics, data manipulation, and machine learning, all of which are basic data science topics! We also do fun activities to help you learn some of the topics discussed. We look forward to seeing you here!",
+        "Discover the exciting world of 3D printing! Join us for an introductory session where we'll cover the basics of 3D printing technology, software, and design. We'll provide hands-on demonstrations and guide you through the process of creating your own 3D printed objects. No prior experience is needed, and we'll have volunteers on hand to assist you every step of the way. Space and equipment is reserved for anyone who signs up.",
       contactPhone: "302-554-8974",
-      contactEmail: "datasciencelearners@yahoo.com",
+      contactEmail: "3dprintingfun@gmail.com",
       volunteers: [
         {
           name: "Aarav Khan",
-          profilePicture: "",
+          profilePicture:
+            "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxwZW9wbGV8ZW58MHx8MHx8fDA%3D",
         },
         {
           name: "Dan Smith",
-          profilePicture: "",
+          profilePicture:
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
         },
       ],
     },
 
     {
-      name: "Intro to Game Development UD",
-      category: "Game Development",
+      name: "3D Printing Workshop",
       image:
-        "https://assets-global.website-files.com/5b651f8b5fc94c4e27470a81/622227fd2ce3cc0455a88166_blog-gamedev-fullsize.png",
-      maxSpots: 8,
+        "https://images.unsplash.com/photo-1615286922420-c6b348ffbd62?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8M2QlMjBwcmludGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+      maxSpots: 6,
       address: "590 Avenue 1743, Newark, DE 19713",
-      time: "12:00 PM - 4:00 PM",
       day: nextSaturdayFormatted,
+      time: "12:00 PM - 4:00 PM",
       usersTask:
-        "We will have fun learning some of the basics of video game design and Unity. We will also have a contest at the end! We hope to see you soon!",
-      contactPhone: "302-778-4983",
-      contactEmail: "gamedevedu@gmail.com",
+        "Join us for a hands-on workshop where we'll explore the fundamentals of 3D printing technology, software, and design. We'll guide you through the process of creating your own 3D models and turning them into physical objects. No prior experience is needed, and our volunteers will be there to assist you every step of the way. Let's bring your ideas to life in 3D! Space and equipment will be reserved for anyone who signs up.",
+      contactPhone: 302 - 778 - 4983,
+      contactEmail: "3dprintingfun@gmail.com",
       volunteers: [
         {
           name: "Aarav Khan",
-          profilePicture: "",
+          profilePicture:
+            "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxwZW9wbGV8ZW58MHx8MHx8fDA%3D",
         },
+
         {
           name: "Bob John",
           profilePicture:
@@ -107,23 +144,25 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
     },
 
     {
-      name: "Algebraic Math at the Library",
-      category: "Math",
+      name: "3D Printing at University of Delaware",
+
       image:
-        "https://www.datanami.com/wp-content/uploads/2015/12/shutterstock_algebra_Marina-Sun.jpg",
+        "https://images.unsplash.com/photo-1642969164999-979483e21601?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fDNkJTIwcHJpbnRpbmd8ZW58MHx8MHx8fDA%3D",
       maxSpots: 20,
-      address: "204 E Main St, Middletown, DE 19709",
+      address: "210 South College Ave. Newark, DE 19716",
       time: "12:00 PM - 3:00 PM",
       day: nextSaturdayFormatted,
       usersTask:
-        "We will discuss and solve algebraic equations together! We will have some problems where teamwork is involved. We hope you see you there!",
-      contactPhone: "302-378-5588",
-      contactEmail: "demathlearner@gmail.com",
+        "Come find similar-minded people, and 3D print with them! Space and equipment is available for anyone who signs up.",
+      contactPhone: "(302) 831-2115",
+      contactEmail: "oiss@udel.edu",
       volunteers: [
         {
-          name: "Aarav Khan",
-          profilePicture: "",
+          name: " Abby Rogers",
+          profilePicture:
+            "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         },
+
         {
           name: "Bob John",
           profilePicture:
@@ -131,229 +170,11 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
         },
         {
           name: "Dan Smith",
-          profilePicture: "",
-        },
-      ],
-    },
-    {
-      name: "Understanding Electrical Circuits",
-      category: "Electrical Circuits",
-
-      image:
-        "https://t4.ftcdn.net/jpg/02/55/22/29/360_F_255222910_Bb4Wonj3oC7RBmSxcksyyFy1wF5CM0xN.jpg",
-      maxSpots: 5,
-      address: "14 Main Street",
-      time: "3:00 p.m - 5:00 p.m",
-      day: nextFridayFormatted,
-      usersTask:
-        "Come make cool electrical circuits with friends, and learn something new!",
-      contactPhone: "302 378-2388",
-      contactEmail: "Tom.russ@gmail.com",
-      volunteers: [
-        {
-          name: " Tom Rogers",
-
           profilePicture:
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tJT|wcGVvcGx|fGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
         },
-        {
-          name: "Mathew Perry",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tJT|wcGVvcGx|fGVufDB8fDB8fHww",
-        },
-        {
-          name: "Tina Wells",
-          profilePicture:
-            "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h80H8cmFuZG9tJT|wcGVvGx|fGVufDB8fDB8fHww",
-        },
-      ],
-    },
-    {
-      name: "Engineering Classes",
-      category: "Engineering",
-      image:
-        "https://thegadgetflow.com/wp-content/uploads/2020/11/Geeek-Club-Cyberpunk-circuit-board-construction-sets-01-1-1200x675.jpg",
-      maxSpots: 4,
-      address: "121 bay Blvd",
-      time: "2:00 p.m - 6:00 p.m",
-      day: nextSundayFormatted,
-      usersTask: "Come engineer whatever you want with other people!",
-      contactPhone: "414 378-2388",
-      contactEmail: "Timmy.Horrd@gmail.com",
-
-      volunteers: [
-        {
-          name: " Micheal Rogers",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJhbmRvbSUyMHB|b3BsZXx|bnwwfHwwfHx8MA%3D%3D",
-
-          name: "Jennet Perry",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJhbmRvbSUyMHBIb3BsZXx|bnwwfHwwfH×8MA%3D%3D",
-        },
-
-        {
-          name: "Tom Wells",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1485206412256-701ccc5b93a?w=900&auto=format&fit=crop&q=60&¡xlib=rb-4.0.3&xid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhbmRvbSUyMHBIb3BsZXx|bnwwfHwwfHx8MA%3D%3D",
-        },
-      ],
-    },
-    {
-      name: "Coding with AI Networks",
-      category: "AI Networks",
-
-      image:
-        "https://eu-images.contentstack.com/v3/assets/blt10e444bce2d36aa8/blt2867744602af6cc6/65252eb79adb9a57ea83c9c4/generative-AI-1.jpg?width=850&auto=webp&quality=95&format=jpg&disable=upscale",
-
-      maxSpots: 4,
-
-      address: "10 14th Street",
-
-      time: "9:00 a.m - 3:00 p.m",
-      day: nextFridayFormatted,
-      usersTask: "Code smart AI networks with different regressions!",
-      contactPhone: "110 178-1388",
-      contactEmail: "Colin.Khan@gmail.com",
-
-      volunteers: [
-        {
-          name: " Bruce Rogers",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHJhbmRvbSUyMHBIb3BsZXxlbnwwfHwwfH×8MA%3D%3D",
-        },
-        {
-          name: "Jennie Perry",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MB8fHJhbmRvbSUyMHBIb3BsZXx|bnwwfHwwfH×8MA%3D%3D",
-        },
-      ],
-    },
-    {
-      name: "Website Development at the Library",
-      category: "Website Development",
-
-      image:
-        "https://blog.hubspot.com/hs-fs/hubfs/web-development.webp?width=1190&height=800&name=web-development.webp",
-      maxSpots: 7,
-
-      address: "1 Orange 14th Street",
-      time: "9:00 a.m - 3:00 p.m",
-      day: nextSundayFormatted,
-      usersTask:
-        "Make a website with friends, and customize it any way you want!",
-      contactPhone: "302-178-1388",
-      contactEmail: " Amir.Khan@gmail.com",
-      volunteers: [
-        {
-          name: " Amitab Bachan",
-
-          profilePicture:
-            "https://englishtribuneimages.blob.core.windows.net/gallary-content/2020/7/Desk/2020_7$largeimg_2124224073.jpeg",
-        },
-        {
-          name: "Irene Hanks",
-
-          profilePicture: "https://randomuser.me/api/portraits/women/94.jpg",
-        },
-        {
-          name: "Kris Torress",
-          profilePicture: "https://randomuser.me/api/portraits/men/7.jpg",
-        },
-      ],
-    },
-    {
-      name: "Video Game Development",
-      category: "Game Development",
-
-      image:
-        "https://www.schoolofit.co.za/wp-content/uploads/2020/05/unity-engine-for-game-development-806x393.webp",
-      maxSpots: 6,
-      address: "22 orange Street",
-      time: "9:00 a.m - 4:00 p.m",
-      day: nextSaturdayFormatted,
-      usersTask:
-        "Come make a game with friends, discuss mechanics, and so much more!",
-      contactPhone: "302-222-1388",
-      contactEmail: "Rob.Khan@gmail.com",
-      volunteers: [
-        {
-          name: " Bob Dell",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?q=80&w=3149&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        },
-        {
-          name: "Tommy Mir",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1621352152645-61f4835b081b?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        },
-        {
-          name: "Mark Bell",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1621353269062-6aa0165576f2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzJ8fHJhbmRvbSUyMHBIb3BsZXx/bnwwfHwwfHx8MA%3D%3D",
-        },
-      ],
-    },
-    {
-      name: "Tool Workshop",
-      category: "Tool Workshop",
-
-      image:
-        "https://images.finewoodworking.com/app/uploads/2018/10/24143804/011272036-main.jpg",
-
-      maxSpots: 6,
-
-      address: "33 mark ave",
-
-      time: "9:00 a.m - 4:00 p.m",
-      day: nextFridayFormatted,
-      usersTask: "Work with tools, and build something amazing!",
-      contactPhone: "302-022-1388",
-      contactEmail: "Rad.Khan@gmail.com",
-      volunteers: [
-        {
-          name: " Pap Dell",
-
-          profilePicture: "https://randomuser.me/api/portraits/men/8.jpg",
-        },
-        {
-          name: "Mike Mir",
-
-          profilePicture: "https://randomuser.me/api/portraits/men/72.jpg",
-        },
-        {
-          name: "Chris Bell",
-          profilePicture: "https://randomuser.me/api/portraits/men/70.jpg11",
-        },
-      ],
-    },
-    {
-      name: "Robotics Workshop",
-      category: "Robotics",
-      image:
-        "https://engineering.tamu.edu/news/2023/01/_news-images/ETID-news-Oakwood-student-robot-tablet-header-17DEC2022.jpg",
-      maxSpots: 6,
-
-      address: "3 barak street",
-      day: nextFridayFormatted,
-      time: "10:00 a.m - 4:00 p.m",
-      usersTask: "Come work with robots, and make your own!",
-      contactPhone: "302-122-1488",
-      contactEmail: "tommtrobot@gmail.com",
-
-      volunteers: [
         {
           name: " Manu Dell",
-
           profilePicture: "https://randomuser.me/api/portraits/men/2.jpg",
         },
         {
@@ -369,224 +190,149 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
       ],
     },
     {
-      name: "Engineering at UD",
-      category: "Engineering",
-      image: "https://wallpapercave.com/wp/wp8000417.jpg",
+      name: "3D Printing At Del Tech GeorgeTown",
+      image:
+        "https://ptcollege.edu/wp-content/uploads/2019/02/cad-editted-hero-image-PSD-v216.jpg",
+      maxSpots: 9,
+      address: "21179 College Drive, Georgetown, Delaware 19947",
+      time: "5:00 p.m - 7:00 p.m",
+      day: nextFridayFormatted,
+      usersTask:
+        "Come and do some 3D printing and CAD with others and have fun! Make sure you have a ride there and back, and you can bring a snack if you want as long as you eat it away from equipment. All we ask of you is to let your creativity thrive!",
+      contactPhone: "302 798-2341",
+      contactEmail: "georgetowncad@yahool.com",
+      volunteers: [
+        {
+          name: "Felix Klein",
+          profilePicture:
+            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+      ],
+    },
+
+    {
+      name: "3D Printing at Milford Library",
+      image:
+        "https://www.hometownlife.com/gcdn/presto/2020/02/27/POEN/b73ef74c-db90-41a4-ba73-d53081c0b4fb-MildfordPublicLibrary3.jpg",
+      maxSpots: 7,
+      address: "11 S E Front Street Milford, DE 19963",
+      time: "3:00 p.m - 4:30 p.m",
+      day: nextFridayFormatted,
+      usersTask:
+        "Come to the library and have fun with 3D printing! Let’s improve at CAD and 3D printing together!",
+      contactPhone: "302 422-8996",
+      contactEmail: "milford.library@lib.de.us",
+      volunteers: [
+        {
+          name: "Ian Clark",
+          profilePicture:
+            "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Emily Baker",
+          profilePicture:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2459&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+      ],
+    },
+
+    {
+      name: "3D Printing at Seaford Library",
+      image:
+        "https://bloximages.newyork1.vip.townnews.com/wrde.com/content/tncms/assets/v3/editorial/5/ae/5ae5dff8-c236-5c2c-9d2d-8a559e655fa8/60f0863092838.image.jpg?resize=1396%2C785",
       maxSpots: 6,
 
-      address: "144 Teriyaki avenue",
+      address: "600 N Market St Ext Extended, Seaford, DE 19973",
       day: nextSundayFormatted,
-      time: "5:35 p.m - 7:31 p.m",
-      usersTask: "Come engineer cool creations with others, or by yourself!",
-      contactPhone: "302 652-1264",
+      time: "5:30 p.m - 7:30 p.m",
+      usersTask:
+        "Come 3D print some cool creations with others, or by yourself!",
+      contactPhone: "302 629-2524",
 
-      contactEmail: "billy.butch@gmail.com",
+      contactEmail: "seafordlibrary@gmail.com",
 
       volunteers: [
         {
-          name: "Sandeep Kaur",
-          profilePicture: "https://stocksnap.io/photo/business-man-JJUUYMLKOC",
-        },
-
-        {
-          name: "Tom Russ",
+          name: "Vince Lee",
 
           profilePicture:
-            "https://www.shutterstock.com/image-photo/business-man-seated-on-chair-75683635?id=75683635&irclickid=W0yzpaQV9xyPRqzTCZUp1Qu0UkHwiVRduyUk2I0&irgwc=1&pl=426523-42119&utm_campaign=Elevated%20Logic%2C%20LLC&utm_content=42119&utm_medium=Affiliate&utm_source=426523&utm_term=STOCKSNAP_PHOTO_DETAIL-AUTHENTIC_API",
+            "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
 
         {
-          name: "Andrew Ford",
+          name: "Kent Cleveland",
 
           profilePicture:
-            "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fHww",
-        },
-
-        {
-          name: " Manu Dell",
-
-          profilePicture: "https://randomuser.me/api/portraits/men/2.jpg",
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=3149&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
       ],
     },
+
     {
-      name: "Environmental Science at the Laboratory",
-      category: "Environmental Science",
+      name: "3D Printing at Lewes Library",
+      image: "https://delawarescene.com/images/organizations/88.jpg",
+      maxSpots: 7,
+      address: "111 Adams Avenue Lewes, DE 19958",
+      time: "3:00 p.m - 5:00 p.m",
+      day: nextFridayFormatted,
+      usersTask:
+        "Come to Lewes library and have some fun experimenting with 3D printing and CAD with friends.",
+      contactPhone: "302 645-2733",
+      contactEmail: "lewesdelibrary@gmail.com",
+      volunteers: [
+        {
+          name: "Felix Klein",
+          profilePicture:
+            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Emily Baker",
+          profilePicture:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2459&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          name: "Kent Cleveland",
+
+          profilePicture:
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=3149&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+      ],
+    },
+
+    {
+      name: "3D Printing and CAD at Selbyville Library",
       image:
-        "https://t4.ftcdn.net/jpg/05/65/15/13/360_F_565151396_zPQbPwEMJ4L5sM5zcqLaj299jW3sNcrV.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/75/Selbyville_Library.jpg",
       maxSpots: 6,
-      address: "243 Walley Street",
-      time: "4:00 p.m - 6:00 p.m",
-      day: nextFridayFormatted,
-      usersTask:
-        "Come do environmental Science with others, share studies, and have fun! Make sure you have a ride back, and you can bring a snack if you want!",
-      contactPhone: "302 446-4189",
-      contactEmail: "cisco.kareem@gmail.com",
-      volunteers: [
-        {
-          name: "Andrew Ford",
-          profilePicture:
-            "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fHww",
-        },
-        {
-          name: "Ashley Walls",
-          profilePicture:
-            "https://images.unsplash.com/photo-1491349174775-aaafddd81942?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        },
-        {
-          name: " Manu Dell",
-
-          profilePicture: "https://randomuser.me/api/portraits/men/2.jpg",
-        },
-      ],
-    },
-    {
-      name: "Experiment with renewable energy",
-      category: "Renewable Energy",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHNlDTQcD3_qDpY2c9rbIZvElNgUeDAiB1gw&usqp=CAU",
-      maxSpots: 5,
-      address: "145 Bill Avenue",
-      time: "2:00 p.m - 4:00 p.m",
-      day: nextFridayFormatted,
-      usersTask:
-        "Come find renewable energy sources  with others, share results, and have fun! Make sure you have a ride back, and you can some food if you want!",
-      contactPhone: "302 996-5467",
-      contactEmail: "ryan.kai@gmail.com",
-      volunteers: [
-        {
-          name: "Ashley Walls",
-          profilePicture:
-            "https://images.unsplash.com/photo-1491349174775-aaafddd81942?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        },
-        {
-          name: "Mckinley Christoper",
-          profilePicture:
-            "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
-        },
-        {
-          name: "Azra Ofori",
-          profilePicture:
-            "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
-        },
-      ],
-    },
-    {
-      name: "Aerospace-related activites",
-      category: "Aerospace",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT07BvWEL8vJChLmOA6SMpJFvi6qYhZF1BQSQ&usqp=CAU",
-      maxSpots: 5,
-      address: "679 Xavier Road",
+      address: "11 Main & McCabe Streets Selbyville, DE 19975",
       time: "1:00 p.m - 3:00 p.m",
-      day: nextFridayFormatted,
-      usersTask:
-        "Come research designs with others, try out new models,and have a good time! Make sure you have a ride back, and you can bring some drinks if you want!",
-      contactPhone: "302 461-9861",
-      contactEmail: "charlie.patel@gmail.com",
-      volunteers: [
-        {
-          name: "Andrew Ford",
-          profilePicture:
-            "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fHww",
-        },
-        {
-          name: "Azra Ofori",
-          profilePicture:
-            "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
-        },
-      ],
-    },
-    {
-      name: "Environment-related activities",
-      category: "Environmental Science",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIDj-2wqQOM71WKgMIjpvmTmUZjIda5JWSZQ&usqp=CAU",
-      maxSpots: 5,
-      address: "817 Bobby Avenue",
-      time: "12:00 p.m - 2:00 p.m",
-      day: nextSaturdayFormatted,
-      usersTask:
-        "Come research different environments, and do other environment-related , and make sure to have a good time! Make sure you have a ride back, and you can bring some food if you think you will be hungry!",
-      contactPhone: "302 164-6891",
-      contactEmail: "Taylor.harmon@gmail.com",
-      volunteers: [
-        {
-          name: " Bruce Rogers",
-
-          profilePicture:
-            "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHJhbmRvbSUyMHBIb3BsZXxlbnwwfHwwfH×8MA%3D%3D",
-        },
-        {
-          name: "Jennie Perry",
-          profilePicture:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MB8fHJhbmRvbSUyMHBIb3BsZXx|bnwwfHwwfH×8MA%3D%3D",
-        },
-      ],
-    },
-
-    {
-      name: "Learn about AR and VR and Experience them",
-      category: "Virtual Reality (VR) and Augmented Reality (AR)",
-      image:
-        "https://t4.ftcdn.net/jpg/03/21/87/17/360_F_321871791_I6DdiEL6qXp5iOxCaDHhuMcAS7oT2vHB.jpg",
-      maxSpots: 5,
-      address: "613 Obama Avenue",
-      time: "7:00 p.m - 9:00 p.m",
       day: nextSundayFormatted,
       usersTask:
-        "Experience different realities, discuss them with others , and have a good time! Make sure you have a ride back, and you can bring some food if necessary!",
-      contactPhone: "302 128-9476",
-      contactEmail: "oslma.hewes@gmail.com",
+        "Come and have fun with others! Learn from each other and let your creativity loose! We hope to see you soon!",
+      contactPhone: "302 436-8195",
+      contactEmail: "selbyvillelibrary@yahoo.com",
+
       volunteers: [
         {
-          name: " Ted Khan",
+          name: "Bob John",
           profilePicture:
-            "front-view-man-working-as-real-estate-agent_23-2151064809.jpg",
+            "https://st3.depositphotos.com/12985848/18855/i/380/depositphotos_188558670-stock-photo-man.jpg",
         },
         {
-          name: "Morgan Yadala",
+          name: "Kent Cleveland",
+
           profilePicture:
-            "mixed-raceyoung-beautiful-business-woman-portrait-ai-generated-image_268835-6443.jpg",
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=3149&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-          name: "Rishabh Patel ",
+          name: "Felix Klein",
           profilePicture:
-            "240_F_636932621_N3R7MLb3thO8HwaS5TLh7dzCRkXufPqC.jpg",
-        },
-      ],
-    },
-    {
-      name: "Learn how to keep your information safe",
-      category: "Cybersecurity",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhYLP8t5DCpmU9Xutgn89S3ZSmsPIbdEZ-6Q&usqp=CAU",
-      maxSpots: 5,
-      address: "921 Miller Road",
-      time: "2:00 p.m - 4:00 p.m",
-      day: nextSaturdayFormatted,
-      usersTask:
-        "Learn different ways to keep your private information safe, discuss them with others , and have a good time! Make sure you have a ride back, and you can bring some food if needed!",
-      contactPhone: "302 668-7392",
-      contactEmail: " Jade.Cabbatigan@gmail.com",
-      volunteers: [
-        {
-          name: "John  Cain",
-          profilePicture:
-            "entrepreneur-portrait-ai-generated-image_268835-5685.jpg",
-        },
-        {
-          name: "Jordan Cotton ",
-          profilePicture: "medium-shot-woman-posing-outdoors_23-2150725947.jpg",
-        },
-        {
-          name: "Angela Adams",
-          profilePicture:
-            "medium-shot-woman-working-as-lawyer_23-2151202448.jpg",
+            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
       ],
     },
   ];
+
   data.forEach((obj2) => {
     // Find the corr  esponding object in the first array
     const matchingObj = pastEvents.find((obj1) => obj1.eventName === obj2.name);
@@ -597,6 +343,23 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
       obj2.volunteers.push({ name: username, profilePicture: profile });
     }
   });
+  if (selectedDate) {
+    const filterEventsByDate = (events, selectedDate) => {
+      if (!selectedDate) return events;
+
+      return events.filter((event) => {
+        const eventDate = new Date(event.day);
+        console.log(eventDate);
+        console.log(selectedDate.toDate().toDateString());
+        return (
+          eventDate.toDateString() === selectedDate.toDate().toDateString()
+        );
+      });
+    };
+
+    // Filter events based on selected date
+    data = filterEventsByDate(data, selectedDate);
+  }
 
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
@@ -607,14 +370,29 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
   ));
 
   return (
-    <Carousel
-    slideSize={{ sm: "33%", xs: "10%" }}
-      slideGap={{ base: rem(2), sm: "xl" }}
-      align="start"
-      slidesToScroll={mobile ? 1 : 2}
-      loop
-    >
-      {slides}
-    </Carousel>
+    <>
+      {data.length > 0 ? (
+        <Carousel
+          slideSize={{ sm: "33%", xs: "10%" }}
+          slideGap={{ base: rem(2), sm: "xl" }}
+          align="start"
+          slidesToScroll={mobile ? 1 : 2}
+          loop
+        >
+          {slides}
+        </Carousel>
+      ) : (
+        <div class="bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 flex items-center justify-center rounded-xl mt-3 text-center">
+          <div>
+            <h1 className="my-5 font-semibold text-2xl text-white ">
+              No events were found!
+            </h1>
+            <p className="text-slate-200 text-lg mb-3">
+              PS: all events are usually on Friday, Saturday, and Sunday!
+            </p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

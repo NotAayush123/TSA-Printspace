@@ -5,6 +5,7 @@ import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import "./index.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import OtherInfo from "./pages/OtherInfo";
@@ -18,6 +19,7 @@ import EventDetail from "./pages/EventDetail";
 import Events from "./pages/Events";
 import { useEffect } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
+import CalendarEvents from "./pages/Calendar";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,6 +59,7 @@ const router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: "account", element: <Account /> },
       { path: "settings", element: <Settings /> },
+      { path: "calendar", element: <CalendarEvents /> },
       {
         path: "events",
         element: <Events />,

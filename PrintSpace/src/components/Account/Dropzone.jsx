@@ -37,7 +37,7 @@ export function DropzoneButton(props) {
   });
   return (
     <>
-      <h3 className="mb-5 text-slate-300 font-semibold text-3xl mt-5">
+      <h3 className="mb-5 text-slate-300 font-semibold text-2xl mt-5">
         Set a profile picture
       </h3>
       <Dropzone

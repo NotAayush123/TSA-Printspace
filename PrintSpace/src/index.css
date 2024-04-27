@@ -89,3 +89,37 @@ html {
   opacity: 0.9;
   height: 100px;
 }
+.m_396ce5cb {
+  color: white;
+}
+.m_396ce5cb:where([data-weekend]) {
+  color: #fca5a5;
+}
+
+.m_396ce5cb:hover {
+  background-color: #1e293b !important;
+}
+.m_396ce5cb:where([data-selected]):hover {
+  background-color: #3b82f6 !important;
+}
+.m_f6645d97:hover {
+  background-color: #1e293b !important;
+  border-top: solid 2px #27272a;
+}
+.m_2351eeb0:hover {
+  background-color: #1e293b !important;
+  border-top: solid 2px #27272a;
+}
+.m_dc6a3c71 {
+  color: white;
+}
+.m_dc6a3c71:hover {
+  background-color: #1e293b !important;
+  border-top: solid 2px #27272a;
+}
+@media (max-width: 770px) {
+  .m_30b26e33 {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

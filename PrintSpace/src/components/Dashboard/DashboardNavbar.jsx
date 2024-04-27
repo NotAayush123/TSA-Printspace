@@ -14,6 +14,7 @@ import {
   IconLogout,
   IconMenu2,
   IconX,
+  IconCalendar,
 } from "@tabler/icons-react";
 import classes from "./DashboardNavbar.module.css";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
@@ -69,15 +70,19 @@ const mockdata = [
   { label: "Account", profile: true, src: "/dashboard/account" },
   { icon: IconHome2, label: "Dashboard", src: "/dashboard" },
   { icon: IconCalendarStats, label: "Events", src: "/dashboard/events" },
+
+  { icon: IconCalendar, label: "Calendar", src: "/dashboard/calendar" },
   { icon: IconSettings, label: "Account Settings", src: "/dashboard/settings" },
 ];
 
 export default function DashboardNavbar() {
   const [active, setActive] = useState(1);
 
+  const location = useLocation();
+
   useEffect(() => {
     const setActivePage = () => {
-      const currentPage = window.location.pathname;
+      const currentPage = location.pathname;
       const activeIndex = mockdata.findIndex(
         (item) => item.src === currentPage
       );
@@ -85,9 +90,7 @@ export default function DashboardNavbar() {
     };
 
     setActivePage();
-  }, []);
-  const location = useLocation();
-
+  }, [location.pathname]);
   const links = mockdata.map((link, index) => (
     <NavbarLink
       {...link}
@@ -139,10 +142,10 @@ export default function DashboardNavbar() {
             <div
               className={`${
                 location.pathname === "/dashboard/account" ||
-                location.pathname === "/dashboard/detail" 
+                location.pathname === "/dashboard/detail"
                   ? "flex w-full justify-center mx-20 "
                   : classes.outletcontent
-              }`}
+              }  `}
             >
               <Outlet />
             </div>
@@ -157,7 +160,7 @@ export default function DashboardNavbar() {
               className={`bg-slate-950 rounded-xl p-3 relative ${classes["orange-button"]}`}
               onClick={toggleSidebar}
             >
-              <IconMenu2 color="white"/>
+              <IconMenu2 color="white" />
             </button>
             {showSidebar && (
               <div style={{ zIndex: "999999 !important" }}>
@@ -166,7 +169,7 @@ export default function DashboardNavbar() {
                     <nav className={`${classes.navbar} bg-slate-950`}>
                       <div className={classes.navbarMain}>
                         <span className={classes.close} onClick={closeSidebar}>
-                          <IconX color="white"/>
+                          <IconX color="white" />
                         </span>
                         <Stack justify="center" gap={0}>
                           {links}

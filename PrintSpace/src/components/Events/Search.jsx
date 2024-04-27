@@ -17,18 +17,16 @@ const Search = ({ onEnter, onFilter }) => {
   const [sunday, setSunday] = useState(true);
 
   const eventNames = [
+    "3D Print at Appoquinimink Library",
     "3D Printing at the Library",
-    "Intro to Data Science UD",
-    "Intro to Game Development UD",
-    "Algebraic Math at the Library",
-    "Understanding Electrical Circuits",
-    "Engineering Classes",
-    "Coding with AI Networks",
-    "Website Development at the Library",
-    "Video Game Development",
-    "Tool Workshop",
-    "Robotics Workshop",
-    "Engineering at the laboratory",
+    "3D Printing Space",
+    "3D Printing Workshop",
+    "3D Printing at University of Delaware",
+    "3D Printing At Del Tech GeorgeTown",
+    "3D Printing at Milford Library",
+    "3D Printing at Seaford Library",
+    "3D Printing at Lewes Library",
+    "3D Printing and CAD at Selbyville Library",
   ];
 
   return (

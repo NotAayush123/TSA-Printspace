@@ -18,7 +18,7 @@ const Settings = () => {
         <InputInfoGroup label="Name" />
         <InputInfoGroup label="Email" />
         <DropzoneButton />
-        <h3 className="mb-5 text-slate-300 font-semibold text-3xl mt-5">
+        <h3 className="mb-5 text-slate-300 font-semibold text-2xl mt-5">
           {description ? "Your Description" : "Create a description"}
         </h3>
         {description && !profile ? (
