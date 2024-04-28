@@ -4,14 +4,9 @@ import { useMantineTheme, rem } from "@mantine/core";
 import { VolunteeringCard } from "./Card";
 import "@mantine/carousel/styles.css";
 
-export function CardsCarousel({
-  date,
-  pastEvents,
-  username,
-  profile,
-  selectedDate,
-}) {
-  const initialDate = new Date(date);
+export function CardsCarousel({ pastEvents, username, profile, selectedDate }) {
+  const initialDate = new Date();
+
   function getNextDayFormatted(initialDate, dayOfWeek) {
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const currentDayOfWeek = initialDate.getDay();

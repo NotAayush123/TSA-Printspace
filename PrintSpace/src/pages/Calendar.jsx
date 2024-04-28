@@ -53,7 +53,6 @@ const CalendarEvents = () => {
           {/* Pass the selected date to the EventsList component */}
           <CardsCarousel
             selectedDate={selected[0]}
-            date={user.date}
             pastEvents={pastEvents}
             username={user.name}
             profile={user.img}

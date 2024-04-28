@@ -131,7 +131,7 @@ const SignupForm = () => {
           email: data.email,
           img: "",
           description: "",
-          date: new Date(),
+
           signedEvents: [],
         })
       );
@@ -277,8 +277,8 @@ const SignupForm = () => {
             <Button
               type="submit"
               disabled={!formIsValid}
-              variant="filled"
-              color="rgba(31, 31, 31, 1)"
+              variant="gradient"
+              gradient={{ from: "grape", to: "indigo", deg: 90 }}
               className="mt-2 disabled:bg-slate-700"
             >
               Submit

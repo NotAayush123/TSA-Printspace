@@ -92,6 +92,11 @@ const About = () => {
       purpose: "Creates Development Environment",
       link: "https://vitejs.dev/",
     },
+    {
+      name: "Day JS",
+      purpose: "Date Formatting",
+      link: "https://www.npmjs.com/package/dayjs",
+    },
   ];
   return (
     <div className={styles.aboutContainer}>

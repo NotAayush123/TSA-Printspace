@@ -58,7 +58,6 @@
 }
 .outletcontent {
   width: 95vw;
-  margin-left: 7rem;
 }
 .menuButton {
   position: relative;
@@ -76,7 +75,7 @@
   height: 50px;
   border-radius: 15px;
 }
-.close:hover{
+.close:hover {
   cursor: pointer;
   background-color: #334155;
 }

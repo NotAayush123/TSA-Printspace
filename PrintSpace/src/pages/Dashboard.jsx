@@ -17,12 +17,12 @@ const Dashboard = () => {
   }, []);
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const date =
-    new Date(user.date).toLocaleTimeString("en-US", {
+    new Date().toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
     }) +
     ", " +
-    new Date(user.date).toLocaleDateString("en-US", { weekday: "long" });
+    new Date().toLocaleDateString("en-US", { weekday: "long" });
   let pastEvents = user.signedEvents;
 
   let newEvents = pastEvents.map((item) => {
@@ -42,7 +42,6 @@ const Dashboard = () => {
       style = { marginLeft: "0px" };
     }
     return (
-      
       <div style={style}>
         <h1 className="my-3 text-5xl font-semibold" style={{ color: "white" }}>
           Welcome back, {user.name}

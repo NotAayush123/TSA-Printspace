@@ -5,8 +5,7 @@ import { VolunteeringCard } from "../Volunteering/Card";
 import "@mantine/carousel/styles.css";
 
 export function EventsList({ value, days }) {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
-  const initialDate = new Date(user.date);
+  const initialDate = new Date();
   function getNextDayFormatted(initialDate, dayOfWeek) {
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const currentDayOfWeek = initialDate.getDay();
