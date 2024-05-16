@@ -14,7 +14,12 @@ export function CallToAction() {
         </h2>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-          <StyledButton text="Get Started!" padding="15px 20px" font="25px" />
+          <StyledButton
+            text="Get Started!"
+            padding="15px 20px"
+            font="25px"
+            href="/signup"
+          />
         </div>
       </Vortex>
     </div>
