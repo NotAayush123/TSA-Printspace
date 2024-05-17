@@ -45,6 +45,10 @@ const OtherInfo = () => {
           makerspace, automatically! You can just go to the location, and 3D
           print there! Also, all the information will be on the event reserved,
           including the hours!
+          <br />
+          <b className="my-3">ALL INFORMATION IS FABRICATED, SOME 3D PRINTING PROGRAMS, CONTACT INFO, and ADDRESSES ARE REAL, BUT THAT DOES NOT MEAN THE EVENT IS REAL. </b>
+          <br /> Please do not bother any 3D printing-related organization on this website.
+          
         </p>
       </div>
 
