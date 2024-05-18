@@ -98,6 +98,27 @@ const About = () => {
       link: "https://www.npmjs.com/package/dayjs",
     },
   ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
   return (
     <div className={styles.aboutContainer}>
       <div className="container mx-auto">
@@ -164,24 +185,34 @@ const About = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-4xl text-white text-center font-bold  mb-8">
-          Frameworks Used
-        </h1>
-        {frameworksUsed.map((framework, index) => (
-          <div key={index} className="mx-3 flex">
-            <h3 className="text-slate-300 text-3xl font-semibold">
-              {framework.name} - {framework.purpose}
-            </h3>
-            <button
-              className="shimmerButton ml-5"
-              onClick={() => {
-                window.location.href = framework.link;
-              }}
+        <h1 className="text-4xl whiteCentered  my-8">Frameworks Used</h1>
+        <motion.div
+          className="flex items-center justify-center flex-col"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+        >
+          {frameworksUsed.map((framework, index) => (
+            <motion.div
+              key={index}
+              className="mx-3 flex"
+              variants={itemVariants}
             >
-              View
-            </button>
-          </div>
-        ))}
+              <h3 className="text-slate-300 text-3xl font-semibold">
+                {framework.name} - {framework.purpose}
+              </h3>
+              <button
+                className="shimmerButton ml-5"
+                onClick={() => {
+                  window.location.href = framework.link;
+                }}
+              >
+                View
+              </button>
+            </motion.div>
+          ))}
+        </motion.div>{" "}
       </div>
     </div>
   );

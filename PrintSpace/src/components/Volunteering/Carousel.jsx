@@ -112,77 +112,87 @@ export function CardsCarousel({ pastEvents, username, profile, selectedDate }) {
     },
     {
       name: "3D Printing at University of Wilmington",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-RNo_oIVXg1gmV7zGMt4OTm5jFFTbVZT7VbENIhzz5w&s",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-RNo_oIVXg1gmV7zGMt4OTm5jFFTbVZT7VbENIhzz5w&s",
       maxSpots: 10,
       address: "320 N Dupont Hwy, New Castle, DE 19720",
       time: "2:00 PM - 5:00 PM",
       day: nextSaturdayFormatted,
-      usersTask: "Join us for an exciting 3D printing event! Connect with other enthusiasts, learn from one another, and unleash your creativity. We look forward to seeing you here at Wilmington University!",
+      usersTask:
+        "Join us for an exciting 3D printing event! Connect with other enthusiasts, learn from one another, and unleash your creativity. We look forward to seeing you here at Wilmington University!",
       contactPhone: "(877) 967-5464",
       contactEmail: "wilmington3Dprint@universityofwilmgton.edu",
       volunteers: [
         {
           name: "Bob John",
-          profilePicture: "https://st3.depositphotos.com/12985848/18855/i/380/depositphotos_188558670-stock-photo-man.jpg"
+          profilePicture:
+            "https://st3.depositphotos.com/12985848/18855/i/380/depositphotos_188558670-stock-photo-man.jpg",
         },
         {
           name: "Kent Cleveland",
-          profilePicture: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=3149&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          profilePicture:
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=3149&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
           name: "Felix Klein",
-          profilePicture: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        }
-      ]
-    },   {
+          profilePicture:
+            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+      ],
+    },
+    {
       name: "3D Printing at Delaware College of Art and Design",
-      image: "https://technical.ly/wp-content/uploads/2024/02/20240207_105528-scaled.jpg",
+      image:
+        "https://technical.ly/wp-content/uploads/2024/02/20240207_105528-scaled.jpg",
       maxSpots: 8,
       address: "600 N Market St, Wilmington, DE 19801",
       time: "10:00 AM - 1:00 PM",
       day: nextSundayFormatted,
-      usersTask: "Join us for an exciting 3D printing event at Delaware College of Art and Design! Explore the intersection of art and technology, collaborate with fellow artists, and bring your creative visions to life!",
+      usersTask:
+        "Join us for an exciting 3D printing event at Delaware College of Art and Design! Explore the intersection of art and technology, collaborate with fellow artists, and bring your creative visions to life!",
       contactPhone: "(302) 622-8000",
       contactEmail: "social@dcad.edu",
       volunteers: [
         {
           name: "Sarah Johnson",
-          profilePicture: "https://randomuser.me/api/portraits/women/4.jpg"
+          profilePicture: "https://randomuser.me/api/portraits/women/4.jpg",
         },
         {
           name: "David Thompson",
-          profilePicture: "https://randomuser.me/api/portraits/men/5.jpg"
+          profilePicture: "https://randomuser.me/api/portraits/men/5.jpg",
         },
         {
           name: "Emma Davis",
-          profilePicture: "https://randomuser.me/api/portraits/women/6.jpg"
-        }
-      ]
+          profilePicture: "https://randomuser.me/api/portraits/women/6.jpg",
+        },
+      ],
     },
     {
       name: "3D Printing at Delaware State University",
-      image: "https://www.blackpast.org/wp-content/uploads/Delaware_State_University_Student_Center_Holzman_Moss_Bottino_Architecture_October_20_2010.jpg",
+      image:
+        "https://www.blackpast.org/wp-content/uploads/Delaware_State_University_Student_Center_Holzman_Moss_Bottino_Architecture_October_20_2010.jpg",
       maxSpots: 15,
       address: "1200 N Dupont Hwy, Dover, DE 19901",
       time: "1:00 PM - 4:00 PM",
       day: nextFridayFormatted,
-      usersTask: "Join us for an exciting 3D printing event! Connect with other enthusiasts, learn from one another, and unleash your creativity. We look forward to seeing you here at Delaware State University!",
+      usersTask:
+        "Join us for an exciting 3D printing event! Connect with other enthusiasts, learn from one another, and unleash your creativity. We look forward to seeing you here at Delaware State University!",
       contactPhone: "(302) 857-6060",
       contactEmail: "dsu3Dprint@delawarestate.edu",
       volunteers: [
         {
           name: "Alice Smith",
-          profilePicture: "https://randomuser.me/api/portraits/women/1.jpg"
+          profilePicture: "https://randomuser.me/api/portraits/women/1.jpg",
         },
         {
           name: "John Doe",
-          profilePicture: "https://randomuser.me/api/portraits/men/2.jpg"
+          profilePicture: "https://randomuser.me/api/portraits/men/2.jpg",
         },
         {
           name: "Emily Brown",
-          profilePicture: "https://randomuser.me/api/portraits/women/3.jpg"
-        }
-      ]
+          profilePicture: "https://randomuser.me/api/portraits/women/3.jpg",
+        },
+      ],
     },
     {
       name: "3D Printing Workshop",
@@ -450,12 +460,12 @@ export function CardsCarousel({ pastEvents, username, profile, selectedDate }) {
           {slides}
         </Carousel>
       ) : (
-        <div class="bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 flex items-center justify-center rounded-xl mt-3 text-center">
+        <div class="bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 flex items-center justify-center rounded-xl mt-5 text-center ">
           <div>
             <h1 className="my-5 font-semibold text-2xl text-white ">
               No events were found!
             </h1>
-            <p className="text-slate-200 text-lg mb-3">
+            <p className="text-slate-200 text-lg mb-5">
               PS: all events are usually on Friday, Saturday, and Sunday!
             </p>
           </div>

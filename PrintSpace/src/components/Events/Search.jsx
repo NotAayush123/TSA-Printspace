@@ -27,6 +27,9 @@ const Search = ({ onEnter, onFilter }) => {
     "3D Printing at Seaford Library",
     "3D Printing at Lewes Library",
     "3D Printing and CAD at Selbyville Library",
+    "3D Printing at University of Wilmington",
+    "3D Printing at Delaware State University",
+    "3D Printing at Delaware College of Art and Design",
   ];
 
   return (
