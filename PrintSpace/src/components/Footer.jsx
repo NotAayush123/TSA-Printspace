@@ -6,25 +6,8 @@ import {
 } from "@tabler/icons-react";
 import logo from "../assets/PrintSpace.png";
 import classes from "./Footer.module.css";
-import { useNavigate } from "react-router-dom";
-const links = [
-  { link: "/about", label: "About" },
-  { link: "/privacy", label: "Privacy" },
-  { link: "/otherInfo", label: "Other Information" },
-];
 
 export function Footer() {
-  const navigate = useNavigate();
-  const items = links.map((link) => (
-    <a
-      className="link text-1xl font-semibold mx-1"
-      key={link.label}
-      href={link.link}
-    >
-      {link.label}
-    </a>
-  ));
-
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
@@ -32,7 +15,6 @@ export function Footer() {
           <img className="w-9 h-9 rounded-3xl" src={logo} />
           <p className="text-white ml-2 font-semibold text-2xl">Printspace</p>
         </div>
-        <Group className={classes.links}>{items}</Group>
 
         <Group gap="md" justify="flex-end" wrap="nowrap">
           <ActionIcon
